@@ -14,9 +14,8 @@ using namespace std;
  */
 
 
-class Beer_recipe {
+class Recipe {
 	Malt_Bill m_bill;
 	Hop_Schedule hops;
 	string yeast;
-
 };
