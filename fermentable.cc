@@ -1,3 +1,4 @@
+#include <fermentable.h>
 using namespace std;
 
 /*
@@ -8,8 +9,4 @@ using namespace std;
  *
  */
 
-class Fermentable {
-
-
-};
-
+Fermentable::Fermentable(void){}

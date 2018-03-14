@@ -1,3 +1,5 @@
+#include <recipe.h>
+
 using namespace std;
 
 /*
@@ -14,8 +16,4 @@ using namespace std;
  */
 
 
-class Recipe {
-	Malt_Bill m_bill;
-	Hop_Schedule hops;
-	string yeast;
-};
+Recipe::Recipe(void){}

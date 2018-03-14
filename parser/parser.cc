@@ -37,7 +37,7 @@ string BeersmithXMLParser::parseRecipeMetaData(TiXmlElement* data)
     oss << "Version: " << current->GetText() << endl;
   }
 
-  cout << oss.str();
+  cout << oss.str()
 
   return "";
 
@@ -46,7 +46,6 @@ string BeersmithXMLParser::parseRecipeMetaData(TiXmlElement* data)
 
 string BeersmithXMLParser::recipe(TiXmlHandle* handleDoc){
   ostringstream oss;
-
   TiXmlElement* rootOfRecipe = handleDoc->FirstChildElement().Element();
 
   for(TiXmlElement* current = rootOfRecipe->FirstChildElement();
@@ -63,7 +62,7 @@ string BeersmithXMLParser::recipe(TiXmlHandle* handleDoc){
   }
 
   return "";
-}
+  }
 
 int main() {
 
