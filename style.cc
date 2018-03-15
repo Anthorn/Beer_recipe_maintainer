@@ -4,4 +4,3 @@
 using namespace std;
 
 
-Style::Style(void){}

@@ -1,24 +1,8 @@
-#include <string>
-#include <iostream>
-#include <sstream>
-#include <tinyxml.h>
-
+#include <parser.h>
 
 using namespace std;
 
 
-class BeersmithXMLParser {
-
-  public:
-    string recipe(TiXmlHandle* handleDoc);
-  private:
-    string parserData(TiXmlElement* data);
-    string parseRecipeMetaData(TiXmlElement* metaData);
-    string parseHopVariety(TiXmlElement* hopVariety);
-    string parseFermentable(TiXmlElement* fermentable);
-    string parseYeast(TiXmlElement* yeast);
-    string parseWaterProfile(TiXmlElement* waterProfile);
-};
 
 
 string BeersmithXMLParser::parseRecipeMetaData(TiXmlElement* data)
@@ -37,7 +21,7 @@ string BeersmithXMLParser::parseRecipeMetaData(TiXmlElement* data)
     oss << "Version: " << current->GetText() << endl;
   }
 
-  cout << oss.str()
+  cout << oss.str();
 
   return "";
 

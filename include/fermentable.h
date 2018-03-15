@@ -1,4 +1,4 @@
-#include <string.h>
+#include <string>
 
 using namespace std;
 
@@ -15,10 +15,11 @@ class Fermentable {
     double getColor();
 
     bool shouldAddAfterBoil();
-    bool recommendedMash();
+    bool isRecommendedInMash();
 
   private:
     string name, version, type, origin, supplier;
     double amount, yield, color;
-    bool addAfterBoil, recommendedMash;
+    bool addAfterBoil;
+    bool recommendedMash;
 };

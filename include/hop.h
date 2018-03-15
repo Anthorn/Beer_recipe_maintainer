@@ -1,4 +1,4 @@
-#include <string.h>
+#include <string>
 
 
 using namespace std;
@@ -9,7 +9,7 @@ using namespace std;
  * be confused with an ordinary Hop.
  */
 
-class {
+class Hop {
   public:
     string getName();
     string getVersion();
@@ -24,4 +24,5 @@ class {
   private:
     string name, version, use, notes, type, form;
     double aplhaAcid, amount, time;
-}
+};
+

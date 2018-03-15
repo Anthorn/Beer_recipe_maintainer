@@ -1,4 +1,4 @@
-#include <string.h>
+#include <string>
 
 /*
  * This class represents the water profile for a recipe.

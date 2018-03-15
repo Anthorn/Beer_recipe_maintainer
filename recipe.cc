@@ -16,4 +16,3 @@ using namespace std;
  */
 
 
-Recipe::Recipe(void){}

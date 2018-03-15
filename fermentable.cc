@@ -9,4 +9,3 @@ using namespace std;
  *
  */
 
-Fermentable::Fermentable(void){}

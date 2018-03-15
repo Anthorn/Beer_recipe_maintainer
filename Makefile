@@ -1,9 +1,10 @@
 ##
-# Makefile for Beersmith xml parser
+# Makefile for recipeMaintainer
 #
 
+PROFILE        := NO
+DEBUG          := NO
 # Make TINYXML use STL
-TINYXML_USE_STL := YES
 
 CC     := gcc
 CXX    := g++
@@ -11,8 +12,8 @@ LD     := g++
 AR     := ar rc
 RANLIB := ranlib
 
-DEBUG_CFLAGS     := -Wall -Wno-format -g -DDEBUG
-RELEASE_CFLAGS   := -Wall -Itinyxml -Iinclude -Wno-unknown-pragmas -Wno-format -O3
+DEBUG_CFLAGS     := -Wall  -Wno-format -g -DDEBUG
+RELEASE_CFLAGS   := -Wall -Iinclude -Iparser/include -Iparser/tinyxml -Wno-unknown-pragmas -Wno-format -O3
 
 LIBS		 :=
 
@@ -38,23 +39,21 @@ ifeq (YES, ${PROFILE})
    LDFLAGS  := ${LDFLAGS} -pg
 endif
 
-## Include paths
-
-#INCS := -Iinclude
+INCS := -Iinclude
 
 #### The target of the build
 
-OUTPUT := parser
+OUTPUT := recipeMaintainer
 
 all: ${OUTPUT}
 
 #### Source files
 
-SRCS := parser.cc
+SRCS := equipment.cc fermentable.cc hop.cc  style.cc water.cc yeast.cc mashStep.cc \
+	 recipe.cc recipeMaintainer.cc
+#OBJS := $(patsubst %.o, tinyxml/%.o, tinyxml.o tinyxmlparser.o tinyxmlerror.o tinystr.o)
 
-OBJS := $(patsubst %.o, tinyxml/%.o, tinyxml.o tinyxmlparser.o tinyxmlerror.o tinystr.o)
-
-OBJS := ${OBJS} $(addsuffix .o, $(basename ${SRCS}))
+OBJS := $(addsuffix .o, $(basename ${SRCS}))
 
 ##### Output
 
@@ -62,13 +61,11 @@ ${OUTPUT}: ${OBJS}
 	${LD} -o $@ ${LDFLAGS} ${OBJS} ${LIBS} ${EXTRA_LIBS}
 
 # Rules for compiling source files to object files
-%.o : %.cc ${CXX} -c ${CXXFLAGS} ${INCS} $< -o $@
+%.o : %.cc ${CXX} -c ${CXXFLAGS} $< -o $@
 
 
 clean:
 	rm ${OBJS} ${OUTPUT}
 
-tinyxml.o: tinyxml.h tinystr.h
-tinyxmlparser.o: tinyxml.h tinystr.h
-xmltest.o: tinyxml.h tinystr.h
-tinyxmlerror.o: tinyxml.h tinystr.h
+parser.o: parser.h
+

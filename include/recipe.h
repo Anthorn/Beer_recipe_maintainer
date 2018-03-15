@@ -5,7 +5,8 @@
 #include <yeast.h>
 #include <style.h>
 #include <equipment.h>
-#include <mash.h>
+#include <mashStep.h>
+#include <list>
 
 using namespace std;
 
@@ -33,8 +34,7 @@ class Recipe {
     list<Yeast> getYeasts();
     Style getStyle();
     Equipment getEquipment();
-    Mash getMashSchedule();
-
+    list<MashStep> getMashSchedule();
 
   private:
     BeerData beerData;
@@ -42,7 +42,7 @@ class Recipe {
     list<Fermentable> fermentables;
     list<Yeast> yeasts;
     list<Water> waterProfiles;
+    list<MashStep> mash;
     Style style;
     Equipment equipment;
-    Mash mash;
 };

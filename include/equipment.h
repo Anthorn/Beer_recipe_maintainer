@@ -1,5 +1,4 @@
-
-#include <string.h>
+#include <string>
 
 using namespace std;
 
@@ -17,6 +16,18 @@ class Equipment{
     double getEvaporationRate();
     double getHopUtilization();
     double getLauterDeadspace();
+
+    void setName(string name);
+    void setVersion(string version);
+    void setBatchSize(double batchSize);
+    void setBoilSize(double boilSize);
+    void setBoilTime(double boilTime);
+    void setEfficency(double efficency);
+    void setTunVolume(double tunVolume);
+    void setTrubChillerLoss(double trubLoss);
+    void setEvaporationRate(double evapRate);
+    void setHopUtilization(double hopUtil);
+    void setLauterDeadspace(double lauterDeadspace);
 
   private:
     string name, version;
