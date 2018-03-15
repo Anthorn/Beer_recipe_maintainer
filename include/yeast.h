@@ -1,4 +1,8 @@
+#ifndef DEF_YEAST
+#define DEF_YEAST
+
 #include <string>
+#include <parsable.h>
 
 
 using namespace std;
@@ -6,7 +10,7 @@ using namespace std;
 
 
 
-class Yeast{
+class Yeast : Parsable {
   public:
     string getName();
     string getVersion();
@@ -27,3 +31,6 @@ class Yeast{
     double attenuation, minTemp, maxTemp;
     bool addToSecondary;
 };
+
+#endif
+

@@ -1,9 +1,12 @@
+#ifndef DEF_EQUIPMENT
+#define DEF_EQUIPMENT
 #include <string>
+#include <parsable.h>
 
 using namespace std;
 
 
-class Equipment{
+class Equipment : public Parsable {
   public:
     string getName();
     string getVersion();
@@ -34,3 +37,6 @@ class Equipment{
     double batchSize, boilSize, boilTime, efficency, tunVolume, trubChillerLoss, evaporationRate,
         hopUtil, lauterDeadspace;
 };
+
+#endif
+

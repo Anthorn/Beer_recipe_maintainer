@@ -1,10 +1,14 @@
+#ifndef DEF_MASHSTEP
+#define DEF_MASHSTEP
+#include <parsable.h>
+
 #include <string>
 
 
 using namespace std;
 
 
-class MashStep {
+class MashStep : Parsable {
 
   public:
     string getName();
@@ -24,4 +28,6 @@ class MashStep {
            waterGrainRatio, infuseTemp;
 
 };
+
+#endif
 

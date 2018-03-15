@@ -4,6 +4,12 @@ using namespace std;
 
 
 
+map<string, string> BeersmithXMLParser::parseBeerData()
+{
+  map<string, string> current;
+  return current;
+}
+
 
 string BeersmithXMLParser::parseRecipeMetaData(TiXmlElement* data)
 {
@@ -47,19 +53,3 @@ string BeersmithXMLParser::recipe(TiXmlHandle* handleDoc){
 
   return "";
   }
-
-int main() {
-
-  TiXmlDocument doc("recipes.xml");
-  bool loadOkay = doc.LoadFile();
-
-
-  BeersmithXMLParser parser;
-
-  if(loadOkay)
-  {
-    TiXmlHandle hDoc(&doc);
-    parser.recipe(&hDoc);
-  }
-  return 0;
-}

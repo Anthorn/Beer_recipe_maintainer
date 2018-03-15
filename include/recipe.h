@@ -7,6 +7,7 @@
 #include <equipment.h>
 #include <mashStep.h>
 #include <list>
+#include <parsable.h>
 
 using namespace std;
 
@@ -27,22 +28,23 @@ using namespace std;
 class Recipe {
 
   public:
-    BeerData getBeerData();
-    list<Hop> getHops();
-    list<Fermentable> getFermentables();
-    list<Water> getWaterProfiles();
-    list<Yeast> getYeasts();
-    Style getStyle();
-    Equipment getEquipment();
+//    BeerData getBeerData();
+//    list<Hop> getHops();
+//    list<Fermentable> getFermentables();
+//    list<Water> getWaterProfiles();
+//    list<Yeast> getYeasts();
+//    Style getStyle();
+//    Equipment getEquipment();
     list<MashStep> getMashSchedule();
 
   private:
-    BeerData beerData;
-    list<Hop> hops;
-    list<Fermentable> fermentables;
-    list<Yeast> yeasts;
-    list<Water> waterProfiles;
-    list<MashStep> mash;
-    Style style;
-    Equipment equipment;
+//    BeersmithXMLParser* parser;
+//    BeerData beerData;
+//    list<Hop> hops;
+//    list<Fermentable> fermentables;
+//    list<Yeast> yeasts;
+//    list<Water> waterProfiles;
+//    list<MashStep> mash;
+//    Style style;
+//    Equipment equipment;
 };

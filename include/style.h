@@ -1,4 +1,8 @@
+#ifndef DEF_STYLE
+#define DEF_STYLE
+
 #include <string>
+#include <parsable.h>
 
 
 using namespace std;
@@ -6,7 +10,7 @@ using namespace std;
 
 
 
-class Style {
+class Style : Parsable {
 
 
   public:
@@ -26,3 +30,6 @@ class Style {
     string name, version, type, category, notes;
     double minAbv, maxAbv, colorMax, colorMin, IBUMin, IBUMax;
 };
+
+#endif
+

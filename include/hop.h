@@ -1,4 +1,7 @@
+#ifndef DEF_HOP
+#define DEF_HOP
 #include <string>
+#include <parsable.h>
 
 
 using namespace std;
@@ -9,7 +12,7 @@ using namespace std;
  * be confused with an ordinary Hop.
  */
 
-class Hop {
+class Hop : Parsable{
   public:
     string getName();
     string getVersion();
@@ -25,4 +28,6 @@ class Hop {
     string name, version, use, notes, type, form;
     double aplhaAcid, amount, time;
 };
+
+#endif
 

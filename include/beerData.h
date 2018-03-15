@@ -1,4 +1,7 @@
+#ifndef DEF_BEERDATA
+#define DEF_BEERDATA
 #include <string>
+#include <parsable.h>
 
 
 using namespace std;
@@ -6,7 +9,7 @@ using namespace std;
 
 
 
-class BeerData{
+class BeerData : public Parsable {
 
 
   public:
@@ -20,6 +23,8 @@ class BeerData{
     int getEfficency();
     double getAbv();
     double getEstAbv();
+    void populate(map<string, string> parsedMap);
+    void parse(BeersmithXMLParser parser);
 
   private:
     string name, version, type, brewer;
@@ -27,4 +32,5 @@ class BeerData{
     double abv, estAbv;
 
 };
+#endif
 

@@ -1,4 +1,8 @@
+#ifndef DEF_WATER
+#define DEF_WATER
+
 #include <string>
+#include <parsable.h>
 
 /*
  * This class represents the water profile for a recipe.
@@ -8,7 +12,7 @@
 using namespace std;
 
 
-class Water {
+class Water : Parsable {
   public:
     string getName();
     string getVersion();
@@ -25,3 +29,6 @@ class Water {
     string name, version, notes;
     double amount, calcium, bicarbonate, sulfate, chloride, sodium, magnesium, ph;
 };
+
+#endif
+

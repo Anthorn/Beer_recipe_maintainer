@@ -1,8 +1,11 @@
+#ifndef DEF_FERMENTABLE
+#define DEF_FERMENTABLE
 #include <string>
+#include <parsable.h>
 
 using namespace std;
 
-class Fermentable {
+class Fermentable : Parsable{
   public:
     string getName();
     string getVersion();
@@ -23,3 +26,6 @@ class Fermentable {
     bool addAfterBoil;
     bool recommendedMash;
 };
+
+#endif
+
