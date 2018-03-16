@@ -11,9 +11,10 @@ CXX    := g++
 LD     := g++
 AR     := ar rc
 RANLIB := ranlib
+C11    := -std=c++11
 
 DEBUG_CFLAGS     := -Wall  -Wno-format -g -DDEBUG
-RELEASE_CFLAGS   := -Wall -Iinclude -Iparser/include -Iparser/tinyxml -Wno-unknown-pragmas -Wno-format -O3
+RELEASE_CFLAGS   := -Wall -Iinclude -Iparser/include -Iparser/tinyxml ${C11} -Wno-unknown-pragmas -Wno-format -O3
 
 LIBS		 :=
 
@@ -62,7 +63,7 @@ ${OUTPUT}: ${OBJS}
 	${LD} -o $@ ${LDFLAGS} ${OBJS} ${LIBS} ${EXTRA_LIBS}
 
 # Rules for compiling source files to object files
-%.o : %.cc ${CXX} -c ${CXXFLAGS} $< -o $@
+%.o : %.cc ${CXX} -c ${CXXFLAGS}  $< -o $@
 
 
 clean:
