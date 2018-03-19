@@ -11,7 +11,7 @@ using namespace std;
 
 class Parsable {
   public:
-     virtual void parse(BeersmithXMLParser parser) = 0;
+     virtual void parse(BeersmithXMLParser* parser) = 0;
      virtual void populate(map<string, string> parsedMap) = 0;
      string toString();
   protected:

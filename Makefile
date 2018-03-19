@@ -5,6 +5,7 @@
 PROFILE        := NO
 DEBUG          := NO
 # Make TINYXML use STL
+TINYXML_USE_STL := YES
 
 CC     := gcc
 CXX    := g++
@@ -39,6 +40,14 @@ ifeq (YES, ${PROFILE})
    CXXFLAGS := ${CXXFLAGS} -pg -O3
    LDFLAGS  := ${LDFLAGS} -pg
 endif
+
+ifeq (YES, ${TINYXML_USE_STL})
+  DEFS := -DTIXML_USE_STL
+else
+  DEFS :=
+endif
+
+CXXFLAGS := ${CXXFLAGS} ${DEFS}
 
 INCS := -Iinclude
 

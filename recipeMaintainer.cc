@@ -7,5 +7,12 @@ using namespace std;
 
 int main() {
 
-  return 0;
+  const char* filename = "recipes.xml";
+  Recipe* recipe = new Recipe(filename);
+
+  BeerData* data;
+
+  data = recipe->getBeerData();
+  data->toString();
+
 }

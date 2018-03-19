@@ -38,9 +38,13 @@ ifeq (YES, ${PROFILE})
    LDFLAGS  := ${LDFLAGS} -pg
 endif
 
-## Include paths
+ifeq (YES, ${TINYXML_USE_STL})
+  DEFS := -DTIXML_USE_STL
+else
+  DEFS :=
+endif
 
-#INCS := -Iinclude
+CXXFLAGS := ${CXXFLAGS} ${DEFS}
 
 #### The target of the build
 
