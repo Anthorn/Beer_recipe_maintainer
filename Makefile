@@ -59,7 +59,7 @@ all: ${OUTPUT}
 
 #### Source files
 
-SRCS := parsable.cc beerData.cc equipment.cc fermentable.cc hop.cc hops.cc  style.cc water.cc yeast.cc mashStep.cc \
+SRCS := parsable.cc beerData.cc equipment.cc fermentable.cc fermentables.cc hop.cc hops.cc  style.cc water.cc yeast.cc mashStep.cc \
 	 recipe.cc recipeMaintainer.cc
 OBJS := $(patsubst %.o, parser/%.o, parser.o )
 OBJS := ${OBJS} $(patsubst %.o, parser/tinyxml/%.o, tinyxml.o tinyxmlparser.o tinyxmlerror.o tinystr.o)

@@ -36,3 +36,11 @@ Hops* Recipe::getHops()
 
   return this->hops;
 }
+
+Fermentables* Recipe::getFermentables()
+{
+  this->fermentables = new Fermentables();
+  this->fermentables->parse(this->parser);
+
+  return this->fermentables;
+}

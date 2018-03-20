@@ -29,5 +29,4 @@ void Hops::parse(BeersmithXMLParser* parser)
 {
   list<map<string, string>> rawHops = parser->parseHops();
   populate(rawHops);
-
 }

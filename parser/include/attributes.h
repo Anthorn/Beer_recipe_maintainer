@@ -5,6 +5,7 @@
 
 #define BEER_ATTRIBUTE_SIZE 10
 #define HOP_ATTRIBUTE_SIZE 10
+#define FERMENTABLE_ATTRIBUTE_SIZE 10
 
 using namespace std;
 
@@ -31,6 +32,19 @@ static string hopAttributes[HOP_ATTRIBUTE_SIZE] =  {
   "TYPE",
   "FORM",
   "AMOUNT"};
+
+static string fermentableAttributes[FERMENTABLE_ATTRIBUTE_SIZE] =  {
+  "NAME",
+  "VERSION",
+  "TYPE",
+  "AMOUNT",
+  "YIELD",
+  "COLOR",
+  "ADD_AFTER_BOIL",
+  "ORIGIN",
+  "NOTES",
+  "RECOMMEND_MASH"
+  };
 
 
 #endif

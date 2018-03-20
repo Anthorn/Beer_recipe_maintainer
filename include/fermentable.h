@@ -5,13 +5,19 @@
 
 using namespace std;
 
-class Fermentable : Parsable{
+class Fermentable{
   public:
+    void print();
+    void populate(map<string, string> rawFermentable);
+    void insertValue(string attribute, string value);
+
+
     string getName();
     string getVersion();
     string getType();
     string getOrigin();
     string getSupplier();
+    string getNotes();
 
     double getAmount();
     double getYield();
@@ -21,7 +27,7 @@ class Fermentable : Parsable{
     bool isRecommendedInMash();
 
   private:
-    string name, version, type, origin, supplier;
+    string name, version, type, origin, supplier, notes;
     double amount, yield, color;
     bool addAfterBoil;
     bool recommendedMash;

@@ -12,11 +12,15 @@ int main() {
 
   BeerData* data;
   Hops* hops;
+  Fermentables* fermentables;
 
   data = recipe->getBeerData();
   data->print();
 
   hops = recipe->getHops();
   hops->print();
+
+  fermentables = recipe->getFermentables();
+  fermentables->print();
 
 }

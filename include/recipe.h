@@ -2,7 +2,7 @@
 #define DEF_RECIPE
 #include <beerData.h>
 #include <hops.h>
-#include <fermentable.h>
+#include <fermentables.h>
 #include <water.h>
 #include <yeast.h>
 #include <style.h>
@@ -33,7 +33,7 @@ class Recipe{
     Recipe(const char* fileName);
     BeerData* getBeerData();
     Hops* getHops();
-//    list<Fermentable> getFermentables();
+    Fermentables* getFermentables();
 //    list<Water> getWaterProfiles();
 //    list<Yeast> getYeasts();
 //    Style getStyle();
@@ -44,7 +44,7 @@ class Recipe{
     BeersmithXMLParser* parser;
     BeerData* beerData;
     Hops* hops;
-//    list<Fermentable> fermentables;
+    Fermentables* fermentables;
 //    list<Yeast> yeasts;
 //    list<Water> waterProfiles;
 //    list<MashStep> mash;

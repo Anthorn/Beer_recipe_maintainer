@@ -65,6 +65,38 @@ list<map<string, string>> BeersmithXMLParser::parseHops()
   return current;
 }
 
+map<string, string> BeersmithXMLParser::parseFermentable(TiXmlElement* currentFermentable)
+{
+  map<string, string> current;
+
+  //TODO: Fix potential null pointer in every parse-method
+  for(int i = 0; i < FERMENTABLE_ATTRIBUTE_SIZE; i++)
+  {
+    current[fermentableAttributes[i]] = currentFermentable->FirstChildElement(fermentableAttributes[i])->GetText();
+  }
+
+  return current;
+}
+
+list<map<string, string>> BeersmithXMLParser::parseFermentables()
+{
+  list<map<string, string>> current;
+  TiXmlElement* start = fetchStartOfParse("FERMENTABLES");
+
+  if(start == NULL) return current;
+
+  TiXmlElement* currentElement = start->FirstChildElement();
+
+  while(currentElement != NULL &&currentElement->ValueStr().compare("FERMENTABLE") == 0)
+  {
+    current.push_back(parseFermentable(currentElement));
+    currentElement = currentElement->NextSiblingElement();
+  }
+
+  return current;
+
+}
+
 /*
  Private method to be used only inside fetchStartOfParse
  It iterates through one level of xml and returns the first element
@@ -127,7 +159,6 @@ string BeersmithXMLParser::parseRecipeMetaData(TiXmlElement* data)
 
 }
 
-
 string BeersmithXMLParser::recipe(TiXmlHandle* handleDoc){
   ostringstream oss;
   TiXmlElement* rootOfRecipe = handleDoc->FirstChildElement().Element();
@@ -148,3 +179,4 @@ string BeersmithXMLParser::recipe(TiXmlHandle* handleDoc){
 
   return "";
   }
+
