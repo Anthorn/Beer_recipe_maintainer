@@ -31,8 +31,8 @@ class BeerData : public Parsable {
     double getEstAbv();
     void populate(map<string, string> parsedMap);
     void parse(BeersmithXMLParser* parser);
+    void print();
     void insertValue(string attribute, string value);
-    void toString();
     void setName();
     void setVersion();
     void setType();

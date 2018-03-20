@@ -1,7 +1,7 @@
 #ifndef DEF_RECIPE
 #define DEF_RECIPE
 #include <beerData.h>
-#include <hop.h>
+#include <hops.h>
 #include <fermentable.h>
 #include <water.h>
 #include <yeast.h>
@@ -30,9 +30,9 @@ using namespace std;
 class Recipe{
 
   public:
-      Recipe(const char* fileName);
-      BeerData* getBeerData();
-//    list<Hop> getHops();
+    Recipe(const char* fileName);
+    BeerData* getBeerData();
+    Hops* getHops();
 //    list<Fermentable> getFermentables();
 //    list<Water> getWaterProfiles();
 //    list<Yeast> getYeasts();
@@ -43,7 +43,7 @@ class Recipe{
   private:
     BeersmithXMLParser* parser;
     BeerData* beerData;
-//    list<Hop> hops;
+    Hops* hops;
 //    list<Fermentable> fermentables;
 //    list<Yeast> yeasts;
 //    list<Water> waterProfiles;

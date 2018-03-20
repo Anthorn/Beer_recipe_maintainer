@@ -34,21 +34,76 @@ map<string, string> BeersmithXMLParser::parseBeerData()
   return current;
 }
 
+map<string, string> BeersmithXMLParser::parseHopVariety(TiXmlElement* currentHop)
+{
+  map<string, string> current;
+
+  for(int i = 0; i < HOP_ATTRIBUTE_SIZE; i++)
+  {
+    current[hopAttributes[i]] = currentHop->FirstChildElement(hopAttributes[i])->GetText();
+  }
+
+  return current;
+}
+
+
+list<map<string, string>> BeersmithXMLParser::parseHops()
+{
+  list<map<string, string>> current;
+  TiXmlElement* start = fetchStartOfParse("HOPS");
+
+  if(start == NULL) return current;
+
+  TiXmlElement* currentElement = start->FirstChildElement();
+
+  while(currentElement != NULL &&currentElement->ValueStr().compare("HOP") == 0)
+  {
+    current.push_back(parseHopVariety(currentElement));
+    currentElement = currentElement->NextSiblingElement();
+  }
+
+  return current;
+}
+
+/*
+ Private method to be used only inside fetchStartOfParse
+ It iterates through one level of xml and returns the first element
+ that has the key key.
+ */
+
+TiXmlElement* digForStart(TiXmlElement* currentRoot, string key)
+{
+  for(TiXmlElement* current = currentRoot->FirstChildElement();
+      current != NULL; current = current->NextSiblingElement()){
+
+    if(key == current->ValueStr()){
+
+      return current;
+    }
+  }
+
+  return 0;
+}
+
 TiXmlElement* BeersmithXMLParser::fetchStartOfParse(string key)
 {
 
   TiXmlHandle handle(this->doc);
 
   TiXmlElement* root = handle.FirstChildElement().Element();
-  for(TiXmlElement* current = root->FirstChildElement();
-      current != NULL; current = current->NextSiblingElement()){
-    if(key == current->ValueStr()){
-      return current;
-    }
+  TiXmlElement* start = digForStart(root, key);
+
+  if(start == NULL){
+    //If we cant find our start key at the first level, we go one level
+    //deeper to look for it. Kind of ugly, but works for now since we will
+    //only have two levels containing start keys.
+    start = root->FirstChildElement();
+    start = digForStart(start, key);
   }
 
-  return NULL;
+  return start;
 }
+
 
 string BeersmithXMLParser::parseRecipeMetaData(TiXmlElement* data)
 {

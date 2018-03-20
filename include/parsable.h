@@ -14,6 +14,7 @@ class Parsable {
      virtual void parse(BeersmithXMLParser* parser) = 0;
      virtual void populate(map<string, string> parsedMap) = 0;
      string toString();
+     virtual void print() = 0;
   protected:
 
 };

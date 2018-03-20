@@ -17,7 +17,6 @@ using namespace std;
 
 Recipe::Recipe(const char* fileName)
 {
-  cout << "Inside recipe constructor" << endl;
   this->parser = new BeersmithXMLParser(fileName);
 }
 
@@ -26,6 +25,14 @@ BeerData* Recipe::getBeerData()
 {
  this->beerData = new BeerData();
  this->beerData->parse(this->parser);
+
  return this->beerData;
 }
 
+Hops* Recipe::getHops()
+{
+  this->hops = new Hops();
+  this->hops->parse(this->parser);
+
+  return this->hops;
+}

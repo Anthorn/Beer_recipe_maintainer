@@ -2,6 +2,7 @@
 #define DEF_BEERSMPARSER
 
 #include <string>
+#include <list>
 #include <iostream>
 #include <sstream>
 #include <tinyxml.h>
@@ -13,12 +14,14 @@
 using namespace std;
 
 
+
 class BeersmithXMLParser {
 
   public:
     BeersmithXMLParser(const char* fileName);
     string recipe(TiXmlHandle* handleDoc);
     map<string, string> parseBeerData();
+    list<map<string, string>> parseHops();
     map<string, string> parseHopVariety(TiXmlElement* hopVariety);
     map<string, string> parseFermentable(TiXmlElement* fermentable);
     map<string, string> parseYeast(TiXmlElement* yeast);

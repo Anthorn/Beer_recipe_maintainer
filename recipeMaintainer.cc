@@ -11,8 +11,12 @@ int main() {
   Recipe* recipe = new Recipe(filename);
 
   BeerData* data;
+  Hops* hops;
 
   data = recipe->getBeerData();
-  data->toString();
+  data->print();
+
+  hops = recipe->getHops();
+  hops->print();
 
 }

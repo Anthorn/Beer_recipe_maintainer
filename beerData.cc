@@ -58,7 +58,7 @@ void BeerData::parse(BeersmithXMLParser* parser)
   }
 }
 
-void BeerData::toString()
+void BeerData::print()
 {
   cout << "##### Parsed BeerData #####" << endl;
 

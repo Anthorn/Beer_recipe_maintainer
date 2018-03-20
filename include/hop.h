@@ -12,12 +12,16 @@ using namespace std;
  * be confused with an ordinary Hop.
  */
 
-class Hop : Parsable{
+class Hop {
   public:
+    void print();
+    void populate(map<string, string> rawHop);
+    void insertValue(string attribute, string value);
     string getName();
     string getVersion();
-    string getUsage();
+    string getOrigin();
     string getNotes();
+    string getUsage();
     string getType();
     string getForm();
     double getAlphaAcid();
@@ -25,8 +29,8 @@ class Hop : Parsable{
     double getAdditionTime();
 
   private:
-    string name, version, use, notes, type, form;
-    double aplhaAcid, amount, time;
+    string name, version, origin, use, notes, type, form;
+    double alphaAcid, amount, time;
 };
 
 #endif
