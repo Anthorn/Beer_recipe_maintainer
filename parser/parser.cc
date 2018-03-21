@@ -20,32 +20,6 @@ BeersmithXMLParser::BeersmithXMLParser(const char* fileName)
 }
 
 
-map<string, string> BeersmithXMLParser::parseBeerData()
-{
-  map<string, string> current;
-  TiXmlElement* start = fetchStartOfParse("RECIPE");
-  if(start == NULL){
-    return current;
-  }
-
-  for(int i = 0; i < BEER_ATTRIBUTE_SIZE; i++) {
-    current[beerData[i]] = start->FirstChildElement(beerData[i])->GetText();
-  }
-  return current;
-}
-
-map<string, string> BeersmithXMLParser::parseHopVariety(TiXmlElement* currentHop)
-{
-  map<string, string> current;
-
-  for(int i = 0; i < HOP_ATTRIBUTE_SIZE; i++)
-  {
-    current[hopAttributes[i]] = currentHop->FirstChildElement(hopAttributes[i])->GetText();
-  }
-
-  return current;
-}
-
 
 list<map<string, string>> BeersmithXMLParser::parseHops()
 {
@@ -60,19 +34,6 @@ list<map<string, string>> BeersmithXMLParser::parseHops()
   {
     current.push_back(parseHopVariety(currentElement));
     currentElement = currentElement->NextSiblingElement();
-  }
-
-  return current;
-}
-
-map<string, string> BeersmithXMLParser::parseFermentable(TiXmlElement* currentFermentable)
-{
-  map<string, string> current;
-
-  //TODO: Fix potential null pointer in every parse-method
-  for(int i = 0; i < FERMENTABLE_ATTRIBUTE_SIZE; i++)
-  {
-    current[fermentableAttributes[i]] = currentFermentable->FirstChildElement(fermentableAttributes[i])->GetText();
   }
 
   return current;
@@ -94,8 +55,25 @@ list<map<string, string>> BeersmithXMLParser::parseFermentables()
   }
 
   return current;
-
 }
+
+map<string, string> BeersmithXMLParser::parseBeerData()
+{
+  TiXmlElement* start = fetchStartOfParse("RECIPE");
+
+  return populateMapFromAttributes(start, beerDataAttributes, BEER_ATTRIBUTE_SIZE);
+}
+
+map<string, string> BeersmithXMLParser::parseHopVariety(TiXmlElement* hopElement)
+{
+  return populateMapFromAttributes(hopElement, hopAttributes, HOP_ATTRIBUTE_SIZE);
+}
+
+map<string, string> BeersmithXMLParser::parseFermentable(TiXmlElement* fermentableElement)
+{
+  return populateMapFromAttributes(fermentableElement, fermentableAttributes, FERMENTABLE_ATTRIBUTE_SIZE);
+}
+
 
 /*
  Private method to be used only inside fetchStartOfParse
@@ -129,54 +107,23 @@ TiXmlElement* BeersmithXMLParser::fetchStartOfParse(string key)
     //If we cant find our start key at the first level, we go one level
     //deeper to look for it. Kind of ugly, but works for now since we will
     //only have two levels containing start keys.
-    start = root->FirstChildElement();
-    start = digForStart(start, key);
+    start = digForStart(root->FirstChildElement(), key);
   }
 
   return start;
 }
 
-
-string BeersmithXMLParser::parseRecipeMetaData(TiXmlElement* data)
+map<string, string> BeersmithXMLParser::populateMapFromAttributes(TiXmlElement* element, string* attributes, size_t size)
 {
-  ostringstream oss;
+  map<string, string> parsedAttributes;
 
+  if(NULL == element) return parsedAttributes;
 
-  TiXmlElement* current;
-  current = data->FirstChildElement("NAME");
-  if(current != NULL){
-    oss << "Name: " << current->GetText() << endl;
+  //TODO: Fix potential null pointer when fetching FirstChildElement
+  for(size_t i = 0; i < size; i++)
+  {
+    parsedAttributes[attributes[i]] = element->FirstChildElement(attributes[i])->GetText();
   }
-
-  current = data->FirstChildElement("VERSION");
-  if(current != NULL){
-    oss << "Version: " << current->GetText() << endl;
-  }
-
-  cout << oss.str();
-
-  return "";
-
+  return parsedAttributes;
 }
-
-string BeersmithXMLParser::recipe(TiXmlHandle* handleDoc){
-  ostringstream oss;
-  TiXmlElement* rootOfRecipe = handleDoc->FirstChildElement().Element();
-
-  cout << "inside ParseBeerData" << endl;
-  for(TiXmlElement* current = rootOfRecipe->FirstChildElement();
-      current != NULL; current = current->NextSiblingElement()){
-
-    cout << "Current key: " <<  current->Value() << endl;
-
-    string currentValue = current->Value();
-
-    if(currentValue == "RECIPE")
-    {
-      oss << parseRecipeMetaData(current);
-    }
-  }
-
-  return "";
-  }
 

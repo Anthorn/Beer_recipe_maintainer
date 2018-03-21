@@ -34,6 +34,7 @@ class BeersmithXMLParser {
     string parseRecipeMetaData(TiXmlElement* data);
     string parserData(TiXmlElement* data);
     TiXmlElement* fetchStartOfParse(string key);
+    map<string, string> populateMapFromAttributes(TiXmlElement* element, string* attributes, size_t size);
 };
 
 #endif

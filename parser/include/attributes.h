@@ -7,9 +7,10 @@
 #define HOP_ATTRIBUTE_SIZE 10
 #define FERMENTABLE_ATTRIBUTE_SIZE 10
 
+
 using namespace std;
 
-static string beerData[BEER_ATTRIBUTE_SIZE] =  {
+static string beerDataAttributes[BEER_ATTRIBUTE_SIZE] =  {
   "NAME",
   "VERSION",
   "TYPE",
