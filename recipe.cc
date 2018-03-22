@@ -44,3 +44,14 @@ Fermentables* Recipe::getFermentables()
 
   return this->fermentables;
 }
+
+
+Yeasts* Recipe::getYeasts(){
+  this->yeasts = new Yeasts();
+  this->yeasts->parse(this->parser);
+
+  return this->yeasts;
+}
+
+
+

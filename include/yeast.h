@@ -10,26 +10,31 @@ using namespace std;
 
 
 
-class Yeast : Parsable {
+class Yeast {
   public:
+    void print();
+    void populate(map<string, string> rawFermentable);
+
     string getName();
     string getVersion();
     string getType();
     string getForm();
     string getProductID();
     string getLaboratory();
-    int getTimesCultured();
-    int getMaxReuse();
+    string getNotes();
+    string getCultureDate();
+    string getFlocculation();
     double getAttenuation();
     double getMinTemp();
     double getMaxTemp();
-    bool getShouldAddToSecondary();
+    double getAmount();
+    bool isAmountInWeight();
 
   private:
-    string name, version, type, form, productID, laboratory;
-    int timesCultured, maxReuse;
-    double attenuation, minTemp, maxTemp;
-    bool addToSecondary;
+    string name, version, type, form, productID, laboratory, notes, cultureDate, flocculation;
+    double attenuation, minTemp, maxTemp, amount;
+    bool amountIsWeight;
+    void insertValue(string attribute, string value);
 };
 
 #endif

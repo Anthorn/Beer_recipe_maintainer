@@ -19,38 +19,50 @@ BeersmithXMLParser::BeersmithXMLParser(const char* fileName)
 
 }
 
-
+list<map<string, string>> BeersmithXMLParser::parseYeasts()
+{
+  return parseAndBuildResult("YEASTS", "YEAST");
+}
 
 list<map<string, string>> BeersmithXMLParser::parseHops()
 {
-  list<map<string, string>> current;
-  TiXmlElement* start = fetchStartOfParse("HOPS");
-
-  if(start == NULL) return current;
-
-  TiXmlElement* currentElement = start->FirstChildElement();
-
-  while(currentElement != NULL &&currentElement->ValueStr().compare("HOP") == 0)
-  {
-    current.push_back(parseHopVariety(currentElement));
-    currentElement = currentElement->NextSiblingElement();
-  }
-
-  return current;
+  return parseAndBuildResult("HOPS", "HOP");
 }
 
 list<map<string, string>> BeersmithXMLParser::parseFermentables()
 {
+  return parseAndBuildResult("FERMENTABLES", "FERMENTABLE");
+}
+
+map<string, string> BeersmithXMLParser::parseIngredient(TiXmlElement* element, string type)
+{
+  if(type.compare("HOP") == 0){
+    return parseHopVariety(element);
+  }
+  else if ( type.compare("FERMENTABLE") == 0) {
+    return parseFermentable(element);
+  }
+  else if (type.compare("YEAST") == 0) {
+    return parseYeast(element);
+  } else {
+    map<string, string> emptyMap; // Change this uggly fix;
+    return emptyMap;
+  }
+
+}
+
+list<map<string, string>> BeersmithXMLParser::parseAndBuildResult(string startKey, string elementKey)
+{
   list<map<string, string>> current;
-  TiXmlElement* start = fetchStartOfParse("FERMENTABLES");
+  TiXmlElement* start = fetchStartOfParse(startKey);
 
   if(start == NULL) return current;
 
   TiXmlElement* currentElement = start->FirstChildElement();
 
-  while(currentElement != NULL &&currentElement->ValueStr().compare("FERMENTABLE") == 0)
+  while(currentElement != NULL &&currentElement->ValueStr().compare(elementKey) == 0)
   {
-    current.push_back(parseFermentable(currentElement));
+    current.push_back(parseIngredient(currentElement, elementKey));
     currentElement = currentElement->NextSiblingElement();
   }
 
@@ -72,6 +84,11 @@ map<string, string> BeersmithXMLParser::parseHopVariety(TiXmlElement* hopElement
 map<string, string> BeersmithXMLParser::parseFermentable(TiXmlElement* fermentableElement)
 {
   return populateMapFromAttributes(fermentableElement, fermentableAttributes, FERMENTABLE_ATTRIBUTE_SIZE);
+}
+
+map<string, string> BeersmithXMLParser::parseYeast(TiXmlElement* yeastElement)
+{
+  return populateMapFromAttributes(yeastElement, yeastAttributes, YEAST_ATTRIBUTE_SIZE);
 }
 
 

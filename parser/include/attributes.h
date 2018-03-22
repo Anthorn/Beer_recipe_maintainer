@@ -6,6 +6,7 @@
 #define BEER_ATTRIBUTE_SIZE 10
 #define HOP_ATTRIBUTE_SIZE 10
 #define FERMENTABLE_ATTRIBUTE_SIZE 10
+#define YEAST_ATTRIBUTE_SIZE 14
 
 
 using namespace std;
@@ -44,8 +45,23 @@ static string fermentableAttributes[FERMENTABLE_ATTRIBUTE_SIZE] =  {
   "ADD_AFTER_BOIL",
   "ORIGIN",
   "NOTES",
-  "RECOMMEND_MASH"
-  };
+  "RECOMMEND_MASH"};
+
+static string yeastAttributes[YEAST_ATTRIBUTE_SIZE] = {
+  "NAME",
+  "VERSION",
+  "TYPE",
+  "FORM",
+  "AMOUNT",
+  "AMOUNT_IS_WEIGHT",
+  "LABORATORY",
+  "PRODUCT_ID",
+  "MIN_TEMPERATURE",
+  "MAX_TEMPERATURE",
+  "FLOCCULATION",
+  "ATTENUATION",
+  "NOTES",
+  "CULTURE_DATE"};
 
 
 #endif

@@ -15,6 +15,22 @@ class Parsable {
      virtual void populate(map<string, string> parsedMap) = 0;
      string toString();
      virtual void print() = 0;
+     static bool convertStringToBool(string value)
+     {
+        if(value.compare("TRUE") == 0)
+         {
+          return true;
+         } else {
+          return false;
+          }
+      }
+    static string printBool(bool value){
+      if(value){
+        return "true";
+      } else {
+        return "false";
+        }
+      }
   protected:
 
 };

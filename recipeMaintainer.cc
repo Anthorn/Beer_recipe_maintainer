@@ -13,6 +13,7 @@ int main() {
   BeerData* data;
   Hops* hops;
   Fermentables* fermentables;
+  Yeasts* yeasts;
 
   data = recipe->getBeerData();
   data->print();
@@ -22,5 +23,8 @@ int main() {
 
   fermentables = recipe->getFermentables();
   fermentables->print();
+
+  yeasts = recipe->getYeasts();
+  yeasts->print();
 
 }

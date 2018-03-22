@@ -8,14 +8,6 @@ using namespace std;
  *
  */
 
-string printBool(bool value){
-  if(value){
-    return "true";
-  } else {
-    return "false";
-  }
-}
-
 void Fermentable::print()
 {
   cout << "     ########## FERMENTABLE ##########" << endl;
@@ -27,20 +19,11 @@ void Fermentable::print()
   cout << "     Amount     : " << this->amount << endl;
   cout << "     Yield      : " << this->yield << endl;
   cout << "     Color      : " << this->color << endl;
-  cout << "     After boil : " << printBool(this->addAfterBoil) << endl;
-  cout << "     Reccomended in mash : " << printBool(this->recommendedMash) << endl;
+  cout << "     After boil : " << Parsable::printBool(this->addAfterBoil) << endl;
+  cout << "     Reccomended in mash : " << Parsable::printBool(this->recommendedMash) << endl;
   cout << "     #########################" << endl;
 }
 
-bool convertStringToBool(string value)
-{
-  if(value.compare("TRUE") == 0)
-  {
-    return true;
-  } else {
-    return false;
-  }
-}
 
 void Fermentable::insertValue(string attribute, string value)
 {
@@ -63,7 +46,7 @@ void Fermentable::insertValue(string attribute, string value)
     this->color = stod(value);
   }
   else if (fermentableAttributes[6].compare(attribute) == 0) {
-    this->addAfterBoil = convertStringToBool(value);
+    this->addAfterBoil = Parsable::convertStringToBool(value);
   }
   else if (fermentableAttributes[7].compare(attribute) == 0) {
     this->origin = value;
@@ -72,7 +55,7 @@ void Fermentable::insertValue(string attribute, string value)
     this->notes = value;
   }
   else if (fermentableAttributes[9].compare(attribute) == 0) {
-    this->recommendedMash = convertStringToBool(value);
+    this->recommendedMash = Parsable::convertStringToBool(value);
   }
 }
 
