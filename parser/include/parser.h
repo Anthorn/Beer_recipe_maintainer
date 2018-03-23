@@ -22,6 +22,7 @@ class BeersmithXMLParser {
     string recipe(TiXmlHandle* handleDoc);
     map<string, string> parseBeerData();
     map<string, string> parseStyle();
+    map<string, string> parseEquipment();
     list<map<string, string>> parseHops();
     list<map<string, string>> parseFermentables();
     list<map<string, string>> parseYeasts();

@@ -37,7 +37,7 @@ class Recipe{
     WaterProfiles* getWaterProfiles();
     Yeasts* getYeasts();
     Style* getStyle();
-//    Equipment getEquipment();
+    Equipment* getEquipment();
 //    list<MashStep> getMashSchedule();
 
   private:
@@ -49,7 +49,7 @@ class Recipe{
     WaterProfiles* waterProfiles;
 //    list<MashStep> mash;
     Style* style;
-//    Equipment equipment;
+    Equipment* equipment;
 };
 
 #endif

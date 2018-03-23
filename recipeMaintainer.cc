@@ -16,6 +16,7 @@ int main() {
   Yeasts* yeasts;
   WaterProfiles* waterProfiles;
   Style* style;
+  Equipment* eq;
 
   data = recipe->getBeerData();
   data->print();
@@ -34,4 +35,7 @@ int main() {
 
   style = recipe->getStyle();
   style->print();
+
+  eq = recipe->getEquipment();
+  eq->print();
 }

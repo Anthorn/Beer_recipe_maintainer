@@ -9,6 +9,7 @@
 #define YEAST_ATTRIBUTE_SIZE 14
 #define WATER_ATTRIBUTE_SIZE 11
 #define STYLE_ATTRIBUTE_SIZE 11
+#define EQUIP_ATTRIBUTE_SIZE 11
 
 
 using namespace std;
@@ -90,5 +91,18 @@ static string styleAttributes[STYLE_ATTRIBUTE_SIZE] =  {
   "COLOR_MIN",
   "IBU_MAX",
   "IBU_MIN"};
+
+static string equipmentAttributes[EQUIP_ATTRIBUTE_SIZE] =  {
+  "NAME",
+  "VERSION",
+  "BOIL_SIZE",
+  "BATCH_SIZE",
+  "TUN_VOLUME",
+  "TRUB_CHILLER_LOSS",
+  "EVAP_RATE",
+  "BOIL_TIME",
+  "LAUTER_DEADSPACE",
+  "HOP_UTILIZATION",
+  "NOTES"};
 
 #endif

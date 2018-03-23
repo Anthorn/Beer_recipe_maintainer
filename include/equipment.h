@@ -8,7 +8,13 @@ using namespace std;
 
 class Equipment : public Parsable {
   public:
+    void populate(map<string, string> parsedMap);
+    void parse(BeersmithXMLParser* parser);
+    void print();
+    void insertValue(string attribute, string value);
+
     string getName();
+    string getNotes();
     string getVersion();
     double getBatchSize();
     double getBoilSize();
@@ -21,6 +27,7 @@ class Equipment : public Parsable {
     double getLauterDeadspace();
 
     void setName(string name);
+    void setNotes(string notes);
     void setVersion(string version);
     void setBatchSize(double batchSize);
     void setBoilSize(double boilSize);
@@ -33,7 +40,7 @@ class Equipment : public Parsable {
     void setLauterDeadspace(double lauterDeadspace);
 
   private:
-    string name, version;
+    string name, version, notes;
     double batchSize, boilSize, boilTime, efficency, tunVolume, trubChillerLoss, evaporationRate,
         hopUtil, lauterDeadspace;
 };

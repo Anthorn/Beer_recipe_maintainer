@@ -69,3 +69,11 @@ Style* Recipe::getStyle()
  return this->style;
 }
 
+Equipment* Recipe::getEquipment()
+{
+ this->equipment = new Equipment();
+ this->equipment->parse(this->parser);
+
+ return this->equipment;
+}
+

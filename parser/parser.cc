@@ -90,6 +90,13 @@ map<string, string> BeersmithXMLParser::parseStyle()
   TiXmlElement* start = fetchStartOfParse("STYLE");
 
   return populateMapFromAttributes(start, styleAttributes, STYLE_ATTRIBUTE_SIZE);
+}
+
+map<string, string> BeersmithXMLParser::parseEquipment()
+{
+  TiXmlElement* start = fetchStartOfParse("EQUIPMENT");
+
+  return populateMapFromAttributes(start, equipmentAttributes, EQUIP_ATTRIBUTE_SIZE);
 
 }
 
