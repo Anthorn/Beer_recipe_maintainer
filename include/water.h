@@ -12,8 +12,12 @@
 using namespace std;
 
 
-class Water : Parsable {
+class Water {
   public:
+    void print();
+    void populate(map<string, string> rawWater);
+    void insertValue(string attribute, string value);
+
     string getName();
     string getVersion();
     string getNotes();

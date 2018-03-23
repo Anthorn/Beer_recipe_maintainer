@@ -15,6 +15,7 @@ void Yeasts::print()
 void Yeasts::populate(list<map<string, string>> rawYeastList)
 {
   Yeast* yeast;
+
   for(const auto& rawYeast : rawYeastList)
   {
     yeast = new Yeast();

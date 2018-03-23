@@ -53,5 +53,12 @@ Yeasts* Recipe::getYeasts(){
   return this->yeasts;
 }
 
+WaterProfiles* Recipe::getWaterProfiles() {
+  this->waterProfiles = new WaterProfiles();
+  this->waterProfiles->parse(this->parser);
+
+  return this->waterProfiles;
+}
+
 
 

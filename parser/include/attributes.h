@@ -7,6 +7,7 @@
 #define HOP_ATTRIBUTE_SIZE 10
 #define FERMENTABLE_ATTRIBUTE_SIZE 10
 #define YEAST_ATTRIBUTE_SIZE 14
+#define WATER_ATTRIBUTE_SIZE 11
 
 
 using namespace std;
@@ -62,6 +63,19 @@ static string yeastAttributes[YEAST_ATTRIBUTE_SIZE] = {
   "ATTENUATION",
   "NOTES",
   "CULTURE_DATE"};
+
+static string waterAttributes[WATER_ATTRIBUTE_SIZE] = {
+  "NAME",
+  "VERSION",
+  "AMOUNT",
+  "CALCIUM",
+  "BICARBONATE",
+  "SULFATE",
+  "CHLORIDE",
+  "SODIUM",
+  "MAGNESIUM",
+  "PH",
+  "NOTES"};
 
 
 #endif

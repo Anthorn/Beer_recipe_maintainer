@@ -13,7 +13,7 @@ using namespace std;
 class Yeast {
   public:
     void print();
-    void populate(map<string, string> rawFermentable);
+    void populate(map<string, string> rawYeast);
 
     string getName();
     string getVersion();

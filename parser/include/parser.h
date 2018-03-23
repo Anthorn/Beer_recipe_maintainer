@@ -24,10 +24,11 @@ class BeersmithXMLParser {
     list<map<string, string>> parseHops();
     list<map<string, string>> parseFermentables();
     list<map<string, string>> parseYeasts();
+    list<map<string, string>> parseWaterProfiles();
     map<string, string> parseHopVariety(TiXmlElement* hopVariety);
     map<string, string> parseFermentable(TiXmlElement* fermentable);
     map<string, string> parseYeast(TiXmlElement* yeast);
-    map<string, string> parseWaterProfile(TiXmlElement* waterProfile);
+    map<string, string> parseWater(TiXmlElement* water);
 
   private:
     TiXmlDocument* doc;

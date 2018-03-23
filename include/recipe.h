@@ -3,7 +3,7 @@
 #include <beerData.h>
 #include <hops.h>
 #include <fermentables.h>
-#include <water.h>
+#include <waterProfiles.h>
 #include <yeasts.h>
 #include <style.h>
 #include <equipment.h>
@@ -34,7 +34,7 @@ class Recipe{
     BeerData* getBeerData();
     Hops* getHops();
     Fermentables* getFermentables();
-//    list<Water> getWaterProfiles();
+    WaterProfiles* getWaterProfiles();
     Yeasts* getYeasts();
 //    Style getStyle();
 //    Equipment getEquipment();
@@ -46,7 +46,7 @@ class Recipe{
     Hops* hops;
     Fermentables* fermentables;
     Yeasts* yeasts;
-//    list<Water> waterProfiles;
+    WaterProfiles* waterProfiles;
 //    list<MashStep> mash;
 //    Style style;
 //    Equipment equipment;

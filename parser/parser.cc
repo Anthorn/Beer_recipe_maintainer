@@ -19,11 +19,6 @@ BeersmithXMLParser::BeersmithXMLParser(const char* fileName)
 
 }
 
-list<map<string, string>> BeersmithXMLParser::parseYeasts()
-{
-  return parseAndBuildResult("YEASTS", "YEAST");
-}
-
 list<map<string, string>> BeersmithXMLParser::parseHops()
 {
   return parseAndBuildResult("HOPS", "HOP");
@@ -32,6 +27,16 @@ list<map<string, string>> BeersmithXMLParser::parseHops()
 list<map<string, string>> BeersmithXMLParser::parseFermentables()
 {
   return parseAndBuildResult("FERMENTABLES", "FERMENTABLE");
+}
+
+list<map<string, string>> BeersmithXMLParser::parseYeasts()
+{
+  return parseAndBuildResult("YEASTS", "YEAST");
+}
+
+list<map<string, string>> BeersmithXMLParser::parseWaterProfiles()
+{
+  return parseAndBuildResult("WATERS", "WATER");
 }
 
 map<string, string> BeersmithXMLParser::parseIngredient(TiXmlElement* element, string type)
@@ -44,7 +49,11 @@ map<string, string> BeersmithXMLParser::parseIngredient(TiXmlElement* element, s
   }
   else if (type.compare("YEAST") == 0) {
     return parseYeast(element);
-  } else {
+  }
+  else if (type.compare("WATER") == 0) {
+    return parseWater(element);
+  }
+  else {
     map<string, string> emptyMap; // Change this uggly fix;
     return emptyMap;
   }
@@ -91,6 +100,11 @@ map<string, string> BeersmithXMLParser::parseYeast(TiXmlElement* yeastElement)
   return populateMapFromAttributes(yeastElement, yeastAttributes, YEAST_ATTRIBUTE_SIZE);
 }
 
+map<string, string> BeersmithXMLParser::parseWater(TiXmlElement* waterElement)
+{
+  return populateMapFromAttributes(waterElement, waterAttributes, WATER_ATTRIBUTE_SIZE);
+}
+
 
 /*
  Private method to be used only inside fetchStartOfParse
@@ -130,7 +144,8 @@ TiXmlElement* BeersmithXMLParser::fetchStartOfParse(string key)
   return start;
 }
 
-map<string, string> BeersmithXMLParser::populateMapFromAttributes(TiXmlElement* element, string* attributes, size_t size)
+map<string, string> BeersmithXMLParser::populateMapFromAttributes(TiXmlElement* element,
+       string* attributes, size_t size)
 {
   map<string, string> parsedAttributes;
 
@@ -139,7 +154,9 @@ map<string, string> BeersmithXMLParser::populateMapFromAttributes(TiXmlElement* 
   //TODO: Fix potential null pointer when fetching FirstChildElement
   for(size_t i = 0; i < size; i++)
   {
+    cout << "rawAttribute " << attributes[i] << ":" << element->FirstChildElement(attributes[i])->GetText() << endl;
     parsedAttributes[attributes[i]] = element->FirstChildElement(attributes[i])->GetText();
+    cout << "Parsed value: " << parsedAttributes[attributes[i]] << endl;
   }
   return parsedAttributes;
 }
