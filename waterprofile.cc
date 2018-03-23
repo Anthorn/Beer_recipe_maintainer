@@ -20,7 +20,6 @@ void WaterProfiles::populate(list<map<string, string>> rawWaterList)
     water->populate(rawWater);
     this->waterProfiles.push_back(water);
   }
-
 }
 
 void WaterProfiles::print()

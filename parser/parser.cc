@@ -85,6 +85,14 @@ map<string, string> BeersmithXMLParser::parseBeerData()
   return populateMapFromAttributes(start, beerDataAttributes, BEER_ATTRIBUTE_SIZE);
 }
 
+map<string, string> BeersmithXMLParser::parseStyle()
+{
+  TiXmlElement* start = fetchStartOfParse("STYLE");
+
+  return populateMapFromAttributes(start, styleAttributes, STYLE_ATTRIBUTE_SIZE);
+
+}
+
 map<string, string> BeersmithXMLParser::parseHopVariety(TiXmlElement* hopElement)
 {
   return populateMapFromAttributes(hopElement, hopAttributes, HOP_ATTRIBUTE_SIZE);

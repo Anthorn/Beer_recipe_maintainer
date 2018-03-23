@@ -8,6 +8,7 @@
 #define FERMENTABLE_ATTRIBUTE_SIZE 10
 #define YEAST_ATTRIBUTE_SIZE 14
 #define WATER_ATTRIBUTE_SIZE 11
+#define STYLE_ATTRIBUTE_SIZE 11
 
 
 using namespace std;
@@ -77,5 +78,17 @@ static string waterAttributes[WATER_ATTRIBUTE_SIZE] = {
   "PH",
   "NOTES"};
 
+static string styleAttributes[STYLE_ATTRIBUTE_SIZE] =  {
+  "NAME",
+  "VERSION",
+  "TYPE",
+  "CATEGORY",
+  "NOTES",
+  "ABV_MAX",
+  "ABV_MIN",
+  "COLOR_MAX",
+  "COLOR_MIN",
+  "IBU_MAX",
+  "IBU_MIN"};
 
 #endif

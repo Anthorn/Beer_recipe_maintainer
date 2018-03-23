@@ -61,4 +61,11 @@ WaterProfiles* Recipe::getWaterProfiles() {
 }
 
 
+Style* Recipe::getStyle()
+{
+ this->style = new Style();
+ this->style->parse(this->parser);
+
+ return this->style;
+}
 

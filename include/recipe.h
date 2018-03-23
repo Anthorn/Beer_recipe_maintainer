@@ -36,7 +36,7 @@ class Recipe{
     Fermentables* getFermentables();
     WaterProfiles* getWaterProfiles();
     Yeasts* getYeasts();
-//    Style getStyle();
+    Style* getStyle();
 //    Equipment getEquipment();
 //    list<MashStep> getMashSchedule();
 
@@ -48,7 +48,7 @@ class Recipe{
     Yeasts* yeasts;
     WaterProfiles* waterProfiles;
 //    list<MashStep> mash;
-//    Style style;
+    Style* style;
 //    Equipment equipment;
 };
 

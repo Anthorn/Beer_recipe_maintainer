@@ -14,6 +14,10 @@ class Style : Parsable {
 
 
   public:
+    void parse(BeersmithXMLParser* parser);
+    void populate(map<string, string> rawStyle);
+    void print();
+    void insertValue(string attribute, string value);
     string getName();
     string getVersion();
     string getType();
