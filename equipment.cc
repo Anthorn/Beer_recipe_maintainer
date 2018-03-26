@@ -23,7 +23,6 @@ void Equipment::print()
 
 void Equipment::insertValue(string attribute, string value)
 {
-  cout << "inster attribute: " << attribute << endl;
    if (equipmentAttributes[0].compare(attribute) == 0) {
       this->name = value;
     }

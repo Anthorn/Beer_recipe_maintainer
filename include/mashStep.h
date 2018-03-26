@@ -8,24 +8,26 @@
 using namespace std;
 
 
-class MashStep : Parsable {
+class MashStep {
 
   public:
+    void print();
+    void populate(map<string, string> rawMashStep);
+    void insertValue(string attribute, string value);
     string getName();
     string getVersion();
+    string getType();
     string getNotes();
-    string getDescription();
     double getInfuseAmount();
     double getStepTime();
     double getStepTemp();
-    double getRampTime();
     double getWaterGrainRation();
     double getInfuseTemp();
 
   private:
-    string name, version, notes, description;
-    double infuseAmount, stepTime, stepTemp, rampTime,
-           waterGrainRatio, infuseTemp;
+    string name, version, notes, type;
+    double infuseAmount, stepTime, stepTemp,
+           waterGrainRatio, infuseTemp, endTemp;
 
 };
 

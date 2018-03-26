@@ -23,7 +23,6 @@ void Water::print()
 
 void Water::insertValue(string attribute, string value)
 {
-  cout << "Parsing attribute: " << attribute << " value: " << value << endl;
   if (waterAttributes[0].compare(attribute) == 0 ) {
     this->name = value;
   }

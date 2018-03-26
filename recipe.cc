@@ -77,3 +77,14 @@ Equipment* Recipe::getEquipment()
  return this->equipment;
 }
 
+
+MashSchedule* Recipe::getMashSchedule()
+{
+  this->mash = new MashSchedule();
+  this->mash->parse(this->parser);
+
+  return this->mash;
+}
+
+
+

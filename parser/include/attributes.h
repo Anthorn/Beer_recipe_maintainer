@@ -10,7 +10,8 @@
 #define WATER_ATTRIBUTE_SIZE 11
 #define STYLE_ATTRIBUTE_SIZE 11
 #define EQUIP_ATTRIBUTE_SIZE 11
-
+#define MASH_STEP_ATTR_SIZE  9
+#define MASH_META_DATA_ATTR_SIZE 4
 
 using namespace std;
 
@@ -104,5 +105,22 @@ static string equipmentAttributes[EQUIP_ATTRIBUTE_SIZE] =  {
   "LAUTER_DEADSPACE",
   "HOP_UTILIZATION",
   "NOTES"};
+
+static string mashMetaDataAttr[MASH_META_DATA_ATTR_SIZE] =  {
+  "NAME",
+  "VERSION",
+  "SPARGE_TEMP",
+  "PH"};
+
+static string mashStepAttr[MASH_STEP_ATTR_SIZE] =  {
+  "NAME",
+  "VERSION",
+  "TYPE",
+  "INFUSE_AMOUNT",
+  "STEP_TIME",
+  "STEP_TEMP",
+  "END_TEMP",
+  "WATER_GRAIN_RATIO",
+  "INFUSE_TEMP"};
 
 #endif

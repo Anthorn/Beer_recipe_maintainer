@@ -39,6 +39,41 @@ list<map<string, string>> BeersmithXMLParser::parseWaterProfiles()
   return parseAndBuildResult("WATERS", "WATER");
 }
 
+list<map<string, string>> BeersmithXMLParser::parseMashSchedule()
+{
+  return parseAndBuildResult("MASH", "MASH_STEP");
+}
+
+
+
+list<map<string, string>> BeersmithXMLParser::parseAndBuildResult(string startKey, string elementKey)
+{
+  list<map<string, string>> current;
+
+  TiXmlElement* start;
+  if(elementKey == "MAST_STEP")
+    start = fetchStartOfParse("MASH_STEPS");
+  else
+    start = fetchStartOfParse(startKey);
+  TiXmlElement* currentElement;
+  if(start == NULL) return current;
+
+  if(elementKey.compare("MASH_STEP") == 0){
+
+   currentElement = start->FirstChildElement("MASH_STEPS")->FirstChildElement(elementKey);
+  } else {
+   currentElement = start->FirstChildElement();
+  }
+
+  while(currentElement != NULL && currentElement->ValueStr().compare(elementKey) == 0)
+  {
+    current.push_back(parseIngredient(currentElement, elementKey));
+    currentElement = currentElement->NextSiblingElement();
+  }
+
+  return current;
+}
+
 map<string, string> BeersmithXMLParser::parseIngredient(TiXmlElement* element, string type)
 {
   if(type.compare("HOP") == 0){
@@ -53,29 +88,21 @@ map<string, string> BeersmithXMLParser::parseIngredient(TiXmlElement* element, s
   else if (type.compare("WATER") == 0) {
     return parseWater(element);
   }
+  else if (type.compare("MASH_STEP") == 0) {
+    return parseMashStep(element);
+  }
   else {
     map<string, string> emptyMap; // Change this uggly fix;
     return emptyMap;
   }
-
 }
 
-list<map<string, string>> BeersmithXMLParser::parseAndBuildResult(string startKey, string elementKey)
+
+map<string, string> BeersmithXMLParser::parseMashMetaData()
 {
-  list<map<string, string>> current;
-  TiXmlElement* start = fetchStartOfParse(startKey);
+  TiXmlElement* start = fetchStartOfParse("MASH");
 
-  if(start == NULL) return current;
-
-  TiXmlElement* currentElement = start->FirstChildElement();
-
-  while(currentElement != NULL &&currentElement->ValueStr().compare(elementKey) == 0)
-  {
-    current.push_back(parseIngredient(currentElement, elementKey));
-    currentElement = currentElement->NextSiblingElement();
-  }
-
-  return current;
+  return populateMapFromAttributes(start, mashMetaDataAttr, MASH_META_DATA_ATTR_SIZE);
 }
 
 map<string, string> BeersmithXMLParser::parseBeerData()
@@ -120,6 +147,12 @@ map<string, string> BeersmithXMLParser::parseWater(TiXmlElement* waterElement)
   return populateMapFromAttributes(waterElement, waterAttributes, WATER_ATTRIBUTE_SIZE);
 }
 
+map<string, string> BeersmithXMLParser::parseMashStep(TiXmlElement* mashStepElement)
+{
+  return populateMapFromAttributes(mashStepElement, mashStepAttr, MASH_STEP_ATTR_SIZE);
+
+}
+
 
 /*
  Private method to be used only inside fetchStartOfParse
@@ -138,7 +171,8 @@ TiXmlElement* digForStart(TiXmlElement* currentRoot, string key)
     }
   }
 
-  return 0;
+  return NULL;
+
 }
 
 TiXmlElement* BeersmithXMLParser::fetchStartOfParse(string key)
@@ -169,9 +203,7 @@ map<string, string> BeersmithXMLParser::populateMapFromAttributes(TiXmlElement* 
   //TODO: Fix potential null pointer when fetching FirstChildElement
   for(size_t i = 0; i < size; i++)
   {
-    cout << "rawAttribute " << attributes[i] << ":" << element->FirstChildElement(attributes[i])->GetText() << endl;
     parsedAttributes[attributes[i]] = element->FirstChildElement(attributes[i])->GetText();
-    cout << "Parsed value: " << parsedAttributes[attributes[i]] << endl;
   }
   return parsedAttributes;
 }

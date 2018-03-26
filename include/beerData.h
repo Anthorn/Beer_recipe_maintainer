@@ -13,11 +13,6 @@ using namespace std;
 
 class BeerData : public Parsable {
 
-  private:
-    string name, version, type, brewer;
-    float batchSize, boilSize, boilTime;
-    double abv, estAbv, efficiency;
-
   public:
     string getName();
     string getVersion();
@@ -43,6 +38,10 @@ class BeerData : public Parsable {
     void setEfficency();
     void setAbv();
     void setEstAbv();
+  private:
+    string name, version, type, brewer;
+    float batchSize, boilSize, boilTime;
+    double abv, estAbv, efficiency;
 
 
 #endif

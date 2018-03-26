@@ -17,6 +17,7 @@ int main() {
   WaterProfiles* waterProfiles;
   Style* style;
   Equipment* eq;
+  MashSchedule* mashSched;
 
   data = recipe->getBeerData();
   data->print();
@@ -38,4 +39,8 @@ int main() {
 
   eq = recipe->getEquipment();
   eq->print();
+
+  mashSched = recipe->getMashSchedule();
+  mashSched->print();
+
 }

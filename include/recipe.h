@@ -7,7 +7,7 @@
 #include <yeasts.h>
 #include <style.h>
 #include <equipment.h>
-#include <mashStep.h>
+#include <mashSchedule.h>
 #include <list>
 #include <parsable.h>
 
@@ -38,7 +38,7 @@ class Recipe{
     Yeasts* getYeasts();
     Style* getStyle();
     Equipment* getEquipment();
-//    list<MashStep> getMashSchedule();
+    MashSchedule* getMashSchedule();
 
   private:
     BeersmithXMLParser* parser;
@@ -47,7 +47,7 @@ class Recipe{
     Fermentables* fermentables;
     Yeasts* yeasts;
     WaterProfiles* waterProfiles;
-//    list<MashStep> mash;
+    MashSchedule* mash;
     Style* style;
     Equipment* equipment;
 };

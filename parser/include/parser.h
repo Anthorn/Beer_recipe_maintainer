@@ -23,14 +23,17 @@ class BeersmithXMLParser {
     map<string, string> parseBeerData();
     map<string, string> parseStyle();
     map<string, string> parseEquipment();
+    map<string, string> parseMashMetaData();
     list<map<string, string>> parseHops();
     list<map<string, string>> parseFermentables();
     list<map<string, string>> parseYeasts();
     list<map<string, string>> parseWaterProfiles();
+    list<map<string, string>> parseMashSchedule();
     map<string, string> parseHopVariety(TiXmlElement* hopVariety);
     map<string, string> parseFermentable(TiXmlElement* fermentable);
     map<string, string> parseYeast(TiXmlElement* yeast);
     map<string, string> parseWater(TiXmlElement* water);
+    map<string, string> parseMashStep(TiXmlElement* mashStep);
 
   private:
     TiXmlDocument* doc;
