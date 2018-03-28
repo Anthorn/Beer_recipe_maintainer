@@ -3,3 +3,7 @@
 parser/parser
 recipeMaintainer
 tags
+src/parser/parser
+*.d
+*.a
+parser/tinyxml/xmltest.o

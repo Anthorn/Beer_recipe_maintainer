@@ -1,4 +1,5 @@
 #include <parser.h>
+#include "include/parser.h"
 
 using namespace std;
 
@@ -45,33 +46,38 @@ list<map<string, string>> BeersmithXMLParser::parseMashSchedule()
 }
 
 
+TiXmlElement* adjustStartIfMashSchedule(TiXmlElement* element, string elementKey)
+{
+  TiXmlElement* currentElement;
+
+  if(elementKey.compare("MASH_STEP") == 0){
+   currentElement = element->FirstChildElement("MASH_STEPS")->FirstChildElement(elementKey);
+  } else {
+   currentElement = element->FirstChildElement();
+  }
+
+  return currentElement;
+}
 
 list<map<string, string>> BeersmithXMLParser::parseAndBuildResult(string startKey, string elementKey)
 {
-  list<map<string, string>> current;
+  list<map<string, string>> result;
 
-  TiXmlElement* start;
-  if(elementKey == "MAST_STEP")
-    start = fetchStartOfParse("MASH_STEPS");
-  else
-    start = fetchStartOfParse(startKey);
+  TiXmlElement* startOfParse;
+  startOfParse = fetchStartOfParse(startKey);
+
   TiXmlElement* currentElement;
-  if(start == NULL) return current;
+  if(startOfParse == NULL) return result;
 
-  if(elementKey.compare("MASH_STEP") == 0){
-
-   currentElement = start->FirstChildElement("MASH_STEPS")->FirstChildElement(elementKey);
-  } else {
-   currentElement = start->FirstChildElement();
-  }
+  currentElement = adjustStartIfMashSchedule(startOfParse, elementKey);
 
   while(currentElement != NULL && currentElement->ValueStr().compare(elementKey) == 0)
   {
-    current.push_back(parseIngredient(currentElement, elementKey));
+    result.push_back(parseIngredient(currentElement, elementKey));
     currentElement = currentElement->NextSiblingElement();
   }
 
-  return current;
+  return result;
 }
 
 map<string, string> BeersmithXMLParser::parseIngredient(TiXmlElement* element, string type)
@@ -92,11 +98,25 @@ map<string, string> BeersmithXMLParser::parseIngredient(TiXmlElement* element, s
     return parseMashStep(element);
   }
   else {
-    map<string, string> emptyMap; // Change this uggly fix;
+    map<string, string> emptyMap;
     return emptyMap;
   }
 }
 
+map<string, string> BeersmithXMLParser::populateMapFromAttributes(TiXmlElement* element,
+       string* attributes, size_t size)
+{
+  map<string, string> parsedAttributes;
+
+  if(NULL == element) return parsedAttributes;
+
+  //TODO: Fix potential null pointer when fetching FirstChildElement
+  for(size_t i = 0; i < size; i++)
+  {
+    parsedAttributes[attributes[i]] = element->FirstChildElement(attributes[i])->GetText();
+  }
+  return parsedAttributes;
+}
 
 map<string, string> BeersmithXMLParser::parseMashMetaData()
 {
@@ -160,7 +180,7 @@ map<string, string> BeersmithXMLParser::parseMashStep(TiXmlElement* mashStepElem
  that has the key key.
  */
 
-TiXmlElement* digForStart(TiXmlElement* currentRoot, string key)
+TiXmlElement* searchForStartElement(TiXmlElement* currentRoot, string key)
 {
   for(TiXmlElement* current = currentRoot->FirstChildElement();
       current != NULL; current = current->NextSiblingElement()){
@@ -181,30 +201,16 @@ TiXmlElement* BeersmithXMLParser::fetchStartOfParse(string key)
   TiXmlHandle handle(this->doc);
 
   TiXmlElement* root = handle.FirstChildElement().Element();
-  TiXmlElement* start = digForStart(root, key);
+  TiXmlElement* start = searchForStartElement(root, key);
 
   if(start == NULL){
     //If we cant find our start key at the first level, we go one level
     //deeper to look for it. Kind of ugly, but works for now since we will
     //only have two levels containing start keys.
-    start = digForStart(root->FirstChildElement(), key);
+    start = searchForStartElement(root->FirstChildElement(), key);
   }
 
   return start;
 }
 
-map<string, string> BeersmithXMLParser::populateMapFromAttributes(TiXmlElement* element,
-       string* attributes, size_t size)
-{
-  map<string, string> parsedAttributes;
-
-  if(NULL == element) return parsedAttributes;
-
-  //TODO: Fix potential null pointer when fetching FirstChildElement
-  for(size_t i = 0; i < size; i++)
-  {
-    parsedAttributes[attributes[i]] = element->FirstChildElement(attributes[i])->GetText();
-  }
-  return parsedAttributes;
-}
 
