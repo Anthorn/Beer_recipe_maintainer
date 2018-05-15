@@ -1,19 +1,19 @@
+#pragma once
 
 #include <list>
-#include <yeast.h>
+#include "yeast.h"
 
-using namespace std;
 
 class Yeasts {
 
   public:
-    list<Yeast*> getYeastList();
-    void parse(BeersmithXMLParser* parser);
+    list<std::shared_ptr<Yeast>> getYeastList();
+    void parse(std::shared_ptr<BeersmithXMLParser> parser);
     void populate(list<map<string, string>> rawYeastList);
     void print();
 
 
   private:
-    list<Yeast*> yeastList;
+    list<std::shared_ptr<Yeast>> yeastList;
 
 };

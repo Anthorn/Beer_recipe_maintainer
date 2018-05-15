@@ -1,8 +1,7 @@
-#ifndef DEF_YEAST
-#define DEF_YEAST
+#pragma once
 
 #include <string>
-#include <parsable.h>
+#include "parsable.h"
 
 
 using namespace std;
@@ -36,6 +35,4 @@ class Yeast {
     bool amountIsWeight;
     void insertValue(string attribute, string value);
 };
-
-#endif
 

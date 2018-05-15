@@ -1,9 +1,9 @@
-#ifndef DEF_PARSABLE
-#define DEF_PARSABLE
+#pragma once
 
 #include <string>
 #include <iostream>
-#include <parser.h>
+#include <memory>
+#include "beerParser.h"
 
 
 using namespace std;
@@ -11,10 +11,11 @@ using namespace std;
 
 class Parsable {
   public:
-     virtual void parse(BeersmithXMLParser* parser) = 0;
-     virtual void populate(map<string, string> parsedMap) = 0;
-     string toString();
-     virtual void print() = 0;
+     virtual void parse(std::shared_ptr<BeersmithXMLParser> parser) {};
+     virtual void populate(map<string, string> parsedMap) {};
+     virtual void populate(list<map<string, string>> parsedList) {};
+     virtual void print() {};
+
      static bool convertStringToBool(string value)
      {
         if(value.compare("TRUE") == 0)
@@ -34,5 +35,3 @@ class Parsable {
   protected:
 
 };
-
-#endif

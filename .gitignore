@@ -7,3 +7,15 @@ src/parser/parser
 *.d
 *.a
 parser/tinyxml/xmltest.o
+*.vs
+*.db
+*.opendb
+Debug
+*.aps
+x64
+ipch
+~*
+out/
+release/
+*.user
+

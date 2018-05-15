@@ -1,13 +1,12 @@
-
+#pragma once
 #include <list>
-#include <water.h>
+#include "water.h"
 
-using namespace std;
 
-class WaterProfiles {
+class WaterProfiles : public Parsable {
 
   public:
-    void parse(BeersmithXMLParser* parser);
+    void parse(std::shared_ptr<BeersmithXMLParser> parser);
     void populate(list<map<string, string>> rawWaterList);
     void print();
 

@@ -1,8 +1,7 @@
-#ifndef DEF_WATER
-#define DEF_WATER
+#pragma once
 
 #include <string>
-#include <parsable.h>
+#include "parsable.h"
 
 /*
  * This class represents the water profile for a recipe.
@@ -33,6 +32,3 @@ class Water {
     string name, version, notes;
     double amount, calcium, bicarbonate, sulfate, chloride, sodium, magnesium, ph;
 };
-
-#endif
-

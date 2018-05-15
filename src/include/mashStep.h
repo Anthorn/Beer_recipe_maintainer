@@ -1,6 +1,5 @@
-#ifndef DEF_MASHSTEP
-#define DEF_MASHSTEP
-#include <parsable.h>
+#pragma once
+#include "parsable.h"
 
 #include <string>
 
@@ -30,6 +29,3 @@ class MashStep {
            waterGrainRatio, infuseTemp, endTemp;
 
 };
-
-#endif
-

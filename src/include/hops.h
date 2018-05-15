@@ -1,23 +1,16 @@
-#ifndef DEF_HOPS_H
-#define DEF_HOPS_H
-
-#include <hop.h>
+#pragma once
+#include "hop.h"
 #include <list>
 
 
-using namespace std;
-
-class Hops  {
+class Hops : public Parsable {
 
   public:
-    list<Hop*> getHops;
-    void parse(BeersmithXMLParser* parser);
-    void populate(list<map<string, string>> rawHops);
+    list<std::shared_ptr<Hop>> getHops();
+    void parse(std::shared_ptr<BeersmithXMLParser> parser) override;
+    void populate(list<map<string, string>> rawHops) override;
     void print();
 
   private:
-    list<Hop*> hops;
+    list<std::shared_ptr<Hop>> hops;
 };
-
-#endif
-

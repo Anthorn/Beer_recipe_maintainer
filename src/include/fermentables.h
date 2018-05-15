@@ -1,19 +1,20 @@
+#pragma once
 #include <list>
-#include <fermentable.h>
+#include "fermentable.h"
 
 using namespace std;
 
-class Fermentables {
+class Fermentables : public Parsable{
 
   public:
-    list<Fermentable*> getFermentables();
-    void parse(BeersmithXMLParser* parser);
-    void populate(list<map<string, string>> rawFermentables);
-    void print();
+    void                                parse(std::shared_ptr<BeersmithXMLParser> parser);
+    void                                populate(list<map<string, string>> rawFermentables);
+    void                                print();
+    list<std::shared_ptr<Fermentable>>  getFermentables();
 
 
   private:
-    list<Fermentable*> fermentables;
+    list<std::shared_ptr<Fermentable>> fermentables;
 
 };
 

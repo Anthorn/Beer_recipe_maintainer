@@ -1,17 +1,17 @@
-#ifndef DEF_RECIPE
-#define DEF_RECIPE
-#include <beerData.h>
-#include <hops.h>
-#include <fermentables.h>
-#include <waterProfiles.h>
-#include <yeasts.h>
-#include <style.h>
-#include <equipment.h>
-#include <mashSchedule.h>
+#pragma once
+#define __STDAFX_INCLUDED__
+#include "beerData.h"
+#include "hops.h"
+#include "fermentables.h"
+#include "waterProfile.h"
+#include "yeasts.h"
+#include "style.h"
+#include "equipment.h"
+#include "mashSchedule.h"
 #include <list>
-#include <parsable.h>
+#include <memory>
+#include "parsable.h"
 
-using namespace std;
 
 /*
  *	The class representing the
@@ -31,26 +31,25 @@ class Recipe{
 
   public:
     Recipe(const char* fileName);
-    BeerData* getBeerData();
-    Hops* getHops();
-    Fermentables* getFermentables();
-    WaterProfiles* getWaterProfiles();
-    Yeasts* getYeasts();
-    Style* getStyle();
-    Equipment* getEquipment();
-    MashSchedule* getMashSchedule();
+    void  loadBeerData();
+    void  loadHops();
+    void  loadFermentables();
+    void  loadWaterProfiles();
+    void  loadYeasts();
+    void  loadStyle();
+    void  loadEquipment();
+    void  loadMashSchedule();
+    void  printRecipe();
 
   private:
-    BeersmithXMLParser* parser;
-    BeerData* beerData;
-    Hops* hops;
-    Fermentables* fermentables;
-    Yeasts* yeasts;
-    WaterProfiles* waterProfiles;
-    MashSchedule* mash;
-    Style* style;
-    Equipment* equipment;
+    std::shared_ptr<BeersmithXMLParser>  parser;
+    std::shared_ptr<BeerData>            beerData;
+    std::shared_ptr<Hops>                hops;
+    std::shared_ptr<Fermentables>        fermentables;
+    std::shared_ptr<Yeasts>              yeasts;
+    std::shared_ptr<WaterProfiles>       waterProfiles;
+    std::shared_ptr<MashSchedule>        mash;
+    std::shared_ptr<Style>               style;
+    std::shared_ptr<Equipment>           equipment;
 };
-
-#endif
 

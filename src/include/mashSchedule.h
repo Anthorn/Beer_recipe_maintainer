@@ -1,8 +1,6 @@
+#pragma once
 
-#ifndef DEF_MASH_SCHED_H
-#define DEF_MASH_SCHED_H
-
-#include <mashStep.h>
+#include "mashStep.h"
 
 using namespace std;
 
@@ -10,8 +8,8 @@ class MashSchedule {
   public:
 
     void print();
-    list<MashStep*> getMashSteps();
-    void parse(BeersmithXMLParser* parser);
+    list<std::shared_ptr<MashStep>> getMashSteps();
+    void parse(shared_ptr<BeersmithXMLParser> parser);
     void insertValue(string attribute, string value);
     void populate(list<map<string, string>> rawMashSteps);
     void populateMetaData(map<string, string> rawMashMetaData);
@@ -19,10 +17,7 @@ class MashSchedule {
   private:
     string name, version;
     double spargeTemp, ph;
-    list<MashStep*> mashSteps;
+    list<std::shared_ptr<MashStep>> mashSteps;
 
 
 };
-
-#endif
-

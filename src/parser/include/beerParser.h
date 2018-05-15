@@ -1,13 +1,11 @@
-#ifndef DEF_BEERSMPARSER
-#define DEF_BEERSMPARSER
-
+#pragma once
 #include <string>
 #include <list>
 #include <iostream>
 #include <sstream>
 #include <tinyxml.h>
 #include <map>
-#include <attributes.h>
+#include "attributes.h"
 
 
 
@@ -48,5 +46,4 @@ class BeersmithXMLParser {
 
 };
 
-#endif
 
