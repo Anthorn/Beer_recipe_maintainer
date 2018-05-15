@@ -9,18 +9,18 @@
 
 void Fermentable::print()
 {
-    cout << "     ########## FERMENTABLE ##########" << endl;
-    cout << "     Name       : " << name << endl;
-    cout << "     Version    : " << version << endl;
-    cout << "     Type       : " << type << endl;
-    cout << "     Origin     : " << origin << endl;
-    cout << "     Notes      : " << notes << endl;
-    cout << "     Amount     : " << amount << endl;
-    cout << "     Yield      : " << yield << endl;
-    cout << "     Color      : " << color << endl;
-    cout << "     After boil : " << Parsable::printBool(addAfterBoil) << endl;
+    cout << "     ########## FERMENTABLE ##########"    << endl;
+    cout << "     Name                : " << name       << endl;
+    cout << "     Version             : " << version    << endl;
+    cout << "     Type                : " << type       << endl;
+    cout << "     Origin              : " << origin     << endl;
+    cout << "     Notes               : " << notes      << endl;
+    cout << "     Amount              : " << amount     << endl;
+    cout << "     Yield               : " << yield      << endl;
+    cout << "     Color               : " << color      << endl;
+    cout << "     After boil          : " << Parsable::printBool(addAfterBoil) << endl;
     cout << "     Reccomended in mash : " << Parsable::printBool(recommendedMash) << endl;
-    cout << "     #########################" << endl;
+    cout << "     ######################"               << endl;
 }
 
 

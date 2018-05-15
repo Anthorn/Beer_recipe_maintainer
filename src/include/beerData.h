@@ -15,8 +15,8 @@ class BeerData : public Parsable {
     void print();
     void insertValue(string attribute, string value);
   private:
-    string name, version, type, brewer;
-    float batchSize, boilSize, boilTime;
-    double abv, estAbv, efficiency;
+    string  name, version, type, brewer;
+    float   batchSize, boilSize, boilTime;
+    double  abv, estAbv, efficiency;
 };
 

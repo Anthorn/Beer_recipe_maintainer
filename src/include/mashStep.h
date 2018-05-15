@@ -13,15 +13,6 @@ class MashStep {
     void print();
     void populate(map<string, string> rawMashStep);
     void insertValue(string attribute, string value);
-    string getName();
-    string getVersion();
-    string getType();
-    string getNotes();
-    double getInfuseAmount();
-    double getStepTime();
-    double getStepTemp();
-    double getWaterGrainRation();
-    double getInfuseTemp();
 
   private:
     string name, version, notes, type;

@@ -3,19 +3,17 @@
 
 #include <string>
 
-#define BEER_ATTRIBUTE_SIZE 10
-#define HOP_ATTRIBUTE_SIZE 10
-#define FERMENTABLE_ATTRIBUTE_SIZE 10
-#define YEAST_ATTRIBUTE_SIZE 14
-#define WATER_ATTRIBUTE_SIZE 11
-#define STYLE_ATTRIBUTE_SIZE 11
-#define EQUIP_ATTRIBUTE_SIZE 11
-#define MASH_STEP_ATTR_SIZE  9
-#define MASH_META_DATA_ATTR_SIZE 4
+#define BEER_ATTRIBUTE_SIZE         10
+#define HOP_ATTRIBUTE_SIZE          10
+#define FERMENTABLE_ATTRIBUTE_SIZE  10
+#define YEAST_ATTRIBUTE_SIZE        14
+#define WATER_ATTRIBUTE_SIZE        11
+#define STYLE_ATTRIBUTE_SIZE        11
+#define EQUIP_ATTRIBUTE_SIZE        11
+#define MASH_STEP_ATTR_SIZE         9
+#define MASH_META_DATA_ATTR_SIZE    4
 
-using namespace std;
-
-static string beerDataAttributes[BEER_ATTRIBUTE_SIZE] =  {
+static std::string beerDataAttributes[BEER_ATTRIBUTE_SIZE] =  {
   "NAME",
   "VERSION",
   "TYPE",
@@ -27,7 +25,7 @@ static string beerDataAttributes[BEER_ATTRIBUTE_SIZE] =  {
   "ABV",
   "EST_ABV"};
 
-static string hopAttributes[HOP_ATTRIBUTE_SIZE] =  {
+static std::string hopAttributes[HOP_ATTRIBUTE_SIZE] =  {
   "NAME",
   "VERSION",
   "ORIGIN",
@@ -39,7 +37,7 @@ static string hopAttributes[HOP_ATTRIBUTE_SIZE] =  {
   "FORM",
   "AMOUNT"};
 
-static string fermentableAttributes[FERMENTABLE_ATTRIBUTE_SIZE] =  {
+static std::string fermentableAttributes[FERMENTABLE_ATTRIBUTE_SIZE] =  {
   "NAME",
   "VERSION",
   "TYPE",
@@ -51,7 +49,7 @@ static string fermentableAttributes[FERMENTABLE_ATTRIBUTE_SIZE] =  {
   "NOTES",
   "RECOMMEND_MASH"};
 
-static string yeastAttributes[YEAST_ATTRIBUTE_SIZE] = {
+static std::string yeastAttributes[YEAST_ATTRIBUTE_SIZE] = {
   "NAME",
   "VERSION",
   "TYPE",
@@ -67,7 +65,7 @@ static string yeastAttributes[YEAST_ATTRIBUTE_SIZE] = {
   "NOTES",
   "CULTURE_DATE"};
 
-static string waterAttributes[WATER_ATTRIBUTE_SIZE] = {
+static std::string waterAttributes[WATER_ATTRIBUTE_SIZE] = {
   "NAME",
   "VERSION",
   "AMOUNT",
@@ -80,7 +78,7 @@ static string waterAttributes[WATER_ATTRIBUTE_SIZE] = {
   "PH",
   "NOTES"};
 
-static string styleAttributes[STYLE_ATTRIBUTE_SIZE] =  {
+static std::string styleAttributes[STYLE_ATTRIBUTE_SIZE] =  {
   "NAME",
   "VERSION",
   "TYPE",
@@ -93,7 +91,7 @@ static string styleAttributes[STYLE_ATTRIBUTE_SIZE] =  {
   "IBU_MAX",
   "IBU_MIN"};
 
-static string equipmentAttributes[EQUIP_ATTRIBUTE_SIZE] =  {
+static std::string equipmentAttributes[EQUIP_ATTRIBUTE_SIZE] =  {
   "NAME",
   "VERSION",
   "BOIL_SIZE",
@@ -106,13 +104,13 @@ static string equipmentAttributes[EQUIP_ATTRIBUTE_SIZE] =  {
   "HOP_UTILIZATION",
   "NOTES"};
 
-static string mashMetaDataAttr[MASH_META_DATA_ATTR_SIZE] =  {
+static std::string mashMetaDataAttr[MASH_META_DATA_ATTR_SIZE] =  {
   "NAME",
   "VERSION",
   "SPARGE_TEMP",
   "PH"};
 
-static string mashStepAttr[MASH_STEP_ATTR_SIZE] =  {
+static std::string mashStepAttr[MASH_STEP_ATTR_SIZE] =  {
   "NAME",
   "VERSION",
   "TYPE",

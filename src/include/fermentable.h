@@ -11,9 +11,9 @@ class Fermentable{
     void insertValue(string attribute, string value);
 
   private:
-    string name, version, type, origin, supplier, notes;
-    double amount, yield, color;
-    bool addAfterBoil;
-    bool recommendedMash;
+    string  name, version, type, origin, supplier, notes;
+    double  amount, yield, color;
+    bool    addAfterBoil;
+    bool    recommendedMash;
 };
 

@@ -9,13 +9,13 @@ void WaterProfiles::parse(std::shared_ptr<BeersmithXMLParser> parser)
 
 void WaterProfiles::populate(list<map<string, string>> rawWaterList)
 {
-    Water* water;
+    std::shared_ptr<Water> water;
 
     for (const auto& rawWater : rawWaterList)
     {
-        water = new Water();
+        water.reset(new Water());
         water->populate(rawWater);
-        this->waterProfiles.push_back(water);
+        waterProfiles.push_back(water);
     }
 }
 

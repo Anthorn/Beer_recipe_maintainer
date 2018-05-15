@@ -17,16 +17,18 @@ class BeersmithXMLParser {
 
   public:
     BeersmithXMLParser(const char* fileName);
-    string recipe(TiXmlHandle* handleDoc);
+
     map<string, string> parseBeerData();
     map<string, string> parseStyle();
     map<string, string> parseEquipment();
     map<string, string> parseMashMetaData();
+
     list<map<string, string>> parseHops();
     list<map<string, string>> parseFermentables();
     list<map<string, string>> parseYeasts();
     list<map<string, string>> parseWaterProfiles();
     list<map<string, string>> parseMashSchedule();
+
     map<string, string> parseHopVariety(TiXmlElement* hopVariety);
     map<string, string> parseFermentable(TiXmlElement* fermentable);
     map<string, string> parseYeast(TiXmlElement* yeast);
@@ -34,15 +36,12 @@ class BeersmithXMLParser {
     map<string, string> parseMashStep(TiXmlElement* mashStep);
 
   private:
-    TiXmlDocument* doc;
-    TiXmlHandle* handle;
-    string parseRecipeMetaData(TiXmlElement* data);
-    string parserData(TiXmlElement* data);
-    TiXmlElement* fetchStartOfParse(string key);
-    map<string, string> populateMapFromAttributes(TiXmlElement* element, string* attributes, size_t size);
-    list<map<string, string>> populateAttributeLists();
+    TiXmlDocument*            doc;
+    TiXmlHandle*              handle;
+    TiXmlElement*             fetchStartOfParse(string key);
+    map<string, string>       populateMapFromAttributes(TiXmlElement* element, string* attributes, size_t size);
     list<map<string, string>> parseAndBuildResult(string startKey, string elementKey);
-    map<string, string> parseIngredient(TiXmlElement* element, string type);
+    map<string, string>       parseIngredient(TiXmlElement* element, string type);
 
 };
 

@@ -1,7 +1,5 @@
 #include <mashSchedule.h>
 
-using namespace std;
-
 
 void MashSchedule::insertValue(string attribute, string value)
 {
@@ -25,11 +23,11 @@ void MashSchedule::insertValue(string attribute, string value)
 
 void MashSchedule::print()
 {
-    cout << "###### MASH SCHEDULE ######" << endl;
-    cout << "  Name: " << name << endl;
-    cout << "  Version: " << version << endl;
-    cout << "  Sparge temp: " << spargeTemp << endl;
-    cout << "  PH: " << ph << endl;
+    cout << "###### MASH SCHEDULE ######"    << endl;
+    cout << "  Name         : "  << name       << endl;
+    cout << "  Version      : "  << version    << endl;
+    cout << "  Sparge temp  : "  << spargeTemp << endl;
+    cout << "  PH           : "  << ph         << endl;
     for (const auto& mashStep : mashSteps)
     {
         mashStep->print();

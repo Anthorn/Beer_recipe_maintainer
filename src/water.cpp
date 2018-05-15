@@ -6,18 +6,18 @@ using namespace std;
 
 void Water::print()
 {
-    cout << "     ########## WATER ##########" << endl;
-    cout << "     Name         : " << this->name << endl;
-    cout << "     Version      : " << this->version << endl;
-    cout << "     Amount       : " << this->amount << endl;
-    cout << "     Calcium      : " << this->calcium << endl;
+    cout << "     ########## WATER ##########"          << endl;
+    cout << "     Name         : " << this->name        << endl;
+    cout << "     Version      : " << this->version     << endl;
+    cout << "     Amount       : " << this->amount      << endl;
+    cout << "     Calcium      : " << this->calcium     << endl;
     cout << "     Bicarbonate  : " << this->bicarbonate << endl;
-    cout << "     Sulfate      : " << this->sulfate << endl;
-    cout << "     Chloride     : " << this->chloride << endl;
-    cout << "     Sodium       : " << this->sodium << endl;
-    cout << "     Magnesium    : " << this->magnesium << endl;
-    cout << "     PH           : " << this->ph << endl;
-    cout << "     Notes        : " << this->notes << endl;
+    cout << "     Sulfate      : " << this->sulfate     << endl;
+    cout << "     Chloride     : " << this->chloride    << endl;
+    cout << "     Sodium       : " << this->sodium      << endl;
+    cout << "     Magnesium    : " << this->magnesium   << endl;
+    cout << "     PH           : " << this->ph          << endl;
+    cout << "     Notes        : " << this->notes       << endl;
 
 }
 

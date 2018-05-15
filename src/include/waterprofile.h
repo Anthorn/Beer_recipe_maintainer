@@ -11,6 +11,6 @@ class WaterProfiles : public Parsable {
     void print();
 
   private:
-    list<Water*> waterProfiles;
+    list<std::shared_ptr<Water>> waterProfiles;
 
 };

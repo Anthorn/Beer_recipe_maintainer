@@ -5,22 +5,22 @@ using namespace std;
 
 void Yeast::print()
 {
-    cout << "     ########## YEAST ##########" << endl;
-    cout << "     Name       : " << this->name << endl;
-    cout << "     Version    : " << this->version << endl;
-    cout << "     Type       : " << this->type << endl;
-    cout << "     Form       : " << this->form << endl;
-    cout << "     Amount     : " << this->amount << endl;
+    cout << "     ########## YEAST ##########"               << endl;
+    cout << "     Name             : " << this->name         << endl;
+    cout << "     Version          : " << this->version      << endl;
+    cout << "     Type             : " << this->type         << endl;
+    cout << "     Form             : " << this->form         << endl;
+    cout << "     Amount           : " << this->amount       << endl;
     cout << "     IsAmountInWeight : " << Parsable::printBool(this->amountIsWeight) << endl;
-    cout << "     Laboratory     : " << this->laboratory << endl;
-    cout << "     ProductID     : " << this->productID << endl;
-    cout << "     Minium Temp   : " << this->minTemp << endl;
-    cout << "     Maximum Temp   : " << this->maxTemp << endl;
-    cout << "     Flocculation   : " << this->flocculation << endl;
-    cout << "     Attenuation      : " << this->attenuation << endl;
-    cout << "     Notes      : " << this->notes << endl;
-    cout << "     Culture date : " << this->cultureDate << endl;
-    cout << "     #########################" << endl;
+    cout << "     Laboratory       : " << this->laboratory   << endl;
+    cout << "     ProductID        : " << this->productID    << endl;
+    cout << "     Minium Temp      : " << this->minTemp      << endl;
+    cout << "     Maximum Temp     : " << this->maxTemp      << endl;
+    cout << "     Flocculation     : " << this->flocculation << endl;
+    cout << "     Attenuation      : " << this->attenuation  << endl;
+    cout << "     Notes            : " << this->notes        << endl;
+    cout << "     Culture date     : " << this->cultureDate  << endl;
+    cout << "     #########################"                 << endl;
 }
 
 

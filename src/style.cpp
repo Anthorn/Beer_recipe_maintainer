@@ -5,19 +5,19 @@ using namespace std;
 
 void Style::print()
 {
-    cout << "     ########## STYLE ##########" << endl;
-    cout << "     Name     : " << this->name << endl;
-    cout << "     Version  : " << this->version << endl;
-    cout << "     Type     : " << this->type << endl;
-    cout << "     Category : " << this->category << endl;
-    cout << "     Notes    : " << this->notes << endl;
-    cout << "     MinAbv   : " << this->minAbv << endl;
-    cout << "     MaxAbv   : " << this->maxAbv << endl;
-    cout << "     MaxColor : " << this->colorMax << endl;
-    cout << "     MinColor : " << this->colorMin << endl;
-    cout << "     IBUMin   : " << this->IBUMin << endl;
-    cout << "     IBUMax   : " << this->IBUMax << endl;
-    cout << "     #########################" << endl;
+    cout << "     ########## STYLE ##########"      << endl;
+    cout << "     Name     : " << this->name        << endl;
+    cout << "     Version  : " << this->version     << endl;
+    cout << "     Type     : " << this->type        << endl;
+    cout << "     Category : " << this->category    << endl;
+    cout << "     Notes    : " << this->notes       << endl;
+    cout << "     MinAbv   : " << this->minAbv      << endl;
+    cout << "     MaxAbv   : " << this->maxAbv      << endl;
+    cout << "     MaxColor : " << this->colorMax    << endl;
+    cout << "     MinColor : " << this->colorMin    << endl;
+    cout << "     IBUMin   : " << this->IBUMin      << endl;
+    cout << "     IBUMax   : " << this->IBUMax      << endl;
+    cout << "     #########################"        << endl;
 }
 
 void Style::insertValue(string attribute, string value)

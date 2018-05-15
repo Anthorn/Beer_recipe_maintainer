@@ -17,7 +17,7 @@ class Equipment : public Parsable {
   private:
     string name, version, notes;
     double batchSize, boilSize, boilTime, efficency, tunVolume, trubChillerLoss, evaporationRate,
-        hopUtil, lauterDeadspace;
+           hopUtil, lauterDeadspace;
 };
 
 #endif

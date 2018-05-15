@@ -6,32 +6,38 @@
 #include "beerParser.h"
 
 
-using namespace std;
 
 
-class Parsable {
-  public:
-     virtual void parse(std::shared_ptr<BeersmithXMLParser> parser) {};
-     virtual void populate(map<string, string> parsedMap) {};
-     virtual void populate(list<map<string, string>> parsedList) {};
-     virtual void print() {};
+class Parsable
+{
+public:
+    virtual void parse(std::shared_ptr<BeersmithXMLParser> parser) {};
+    virtual void populate(map<string, string> parsedMap) {};
+    virtual void populate(list<map<string, string>> parsedList) {};
+    virtual void print() {};
 
-     static bool convertStringToBool(string value)
-     {
-        if(value.compare("TRUE") == 0)
-         {
-          return true;
-         } else {
-          return false;
-          }
-      }
-    static string printBool(bool value){
-      if(value){
-        return "true";
-      } else {
-        return "false";
+    static bool convertStringToBool(string value)
+    {
+        if (value.compare("TRUE") == 0)
+        {
+            return true;
         }
-      }
-  protected:
+        else
+        {
+            return false;
+        }
+    }
+    static string printBool(bool value)
+    {
+        if (value)
+        {
+            return "true";
+        }
+        else
+        {
+            return "false";
+        }
+    }
+protected:
 
 };

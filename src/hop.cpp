@@ -3,18 +3,18 @@
 
 void Hop::print()
 {
-    cout << "     ########## HOP ##########" << endl;
-    cout << "     Name     : " << name << endl;
-    cout << "     Version  : " << version << endl;
-    cout << "     Origin   : " << origin << endl;
-    cout << "     Usage    : " << use << endl;
-    cout << "     Notes    : " << notes << endl;
-    cout << "     Type     : " << type << endl;
-    cout << "     Form     : " << form << endl;
+    cout << "     ########## HOP ##########"<< endl;
+    cout << "     Name     : " << name      << endl;
+    cout << "     Version  : " << version   << endl;
+    cout << "     Origin   : " << origin    << endl;
+    cout << "     Usage    : " << use       << endl;
+    cout << "     Notes    : " << notes     << endl;
+    cout << "     Type     : " << type      << endl;
+    cout << "     Form     : " << form      << endl;
     cout << "     AlphaAcid: " << alphaAcid << endl;
-    cout << "     Amount   : " << amount << endl;
-    cout << "     Time     : " << time << endl;
-    cout << "     #########################" << endl;
+    cout << "     Amount   : " << amount    << endl;
+    cout << "     Time     : " << time      << endl;
+    cout << "     ########################" << endl;
 }
 
 

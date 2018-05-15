@@ -4,21 +4,19 @@
 
 void Equipment::print()
 {
-    cout << "##### EQUIPMENT #####" << endl;
-
-    cout << "Name: " << name << endl;
-
-    cout << "Version: " << version << endl;
-    cout << "BoilSize: " << boilSize << endl;
-    cout << "BatchSize: " << batchSize << endl;
-    cout << "Tun Volume: " << tunVolume << endl;
+    cout << "##### EQUIPMENT #####"                   << endl;
+    cout << "Name              : " << name            << endl;
+    cout << "Version           : " << version         << endl;
+    cout << "BoilSize          : " << boilSize        << endl;
+    cout << "BatchSize         : " << batchSize       << endl;
+    cout << "Tun Volume        : " << tunVolume       << endl;
     cout << "Trub loss to chill: " << trubChillerLoss << endl;
-    cout << "Evaporation rate: " << evaporationRate << endl;
-    cout << "Boil time: " << boilTime << endl;
-    cout << "Lauter deadspace: " << lauterDeadspace << endl;
-    cout << "Hop Util: " << hopUtil << endl;
-    cout << "Notes: " << notes << endl;
-    cout << "##########################################" << endl;
+    cout << "Evaporation rate  : " << evaporationRate << endl;
+    cout << "Boil time         : " << boilTime        << endl;
+    cout << "Lauter deadspace  : " << lauterDeadspace << endl;
+    cout << "Hop Util          : " << hopUtil         << endl;
+    cout << "Notes             : " << notes           << endl;
+    cout << "####################################"    << endl;
 }
 
 void Equipment::insertValue(string attribute, string value)

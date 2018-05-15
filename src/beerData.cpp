@@ -7,43 +7,43 @@ void BeerData::insertValue(string attribute, string value)
 {
     if (beerDataAttributes[0].compare(attribute) == 0)
     {
-        this->name = value;
+        name = value;
     }
     else  if (beerDataAttributes[1].compare(attribute) == 0)
     {
-        this->version = value;
+        version = value;
     }
     else if (beerDataAttributes[2].compare(attribute) == 0)
     {
-        this->type = value;
+        type = value;
     }
     else if (beerDataAttributes[3].compare(attribute) == 0)
     {
-        this->brewer = value;
+        brewer = value;
     }
     else if (beerDataAttributes[4].compare(attribute) == 0)
     {
-        this->batchSize = stof(value);
+        batchSize = stof(value);
     }
     else if (beerDataAttributes[5].compare(attribute) == 0)
     {
-        this->boilSize = stof(value);
+        boilSize = stof(value);
     }
     else if (beerDataAttributes[6].compare(attribute) == 0)
     {
-        this->boilTime = stof(value);
+        boilTime = stof(value);
     }
     else if (beerDataAttributes[7].compare(attribute) == 0)
     {
-        this->efficiency = stof(value);
+        efficiency = stof(value);
     }
     else if (beerDataAttributes[8].compare(attribute) == 0)
     {
-        this->abv = stod(value);
+        abv = stod(value);
     }
     else if (beerDataAttributes[9].compare(attribute) == 0)
     {
-        this->estAbv = stod(value);
+        estAbv = stod(value);
     }
 }
 
@@ -68,15 +68,15 @@ void BeerData::populate(map<string, string> parsedMap)
 void BeerData::print()
 {
     cout << "############   BeerData     #############"         << endl;
-    cout << "Name: "                        << this->name       << endl;
-    cout << "Version: "                     << this->version    << endl;
-    cout << "Type: "                        << this->type       << endl;
-    cout << "brewer: "                      << this->brewer     << endl;
-    cout << "BatchSize: "                   << this->batchSize  << endl;
-    cout << "BoilSize: "                    << this->boilSize   << endl;
-    cout << "BoilTime: "                    << this->boilTime   << endl;
-    cout << "Efficency: "                   << this->efficiency << endl;
-    cout << "Alcohol by volume: "           << this->abv        << endl;
-    cout << "Estimated alcohol by volume: " << this->estAbv     << endl;
+    cout << "Name                       : " << name             << endl;
+    cout << "Version                    : " << version          << endl;
+    cout << "Type                       : " << type             << endl;
+    cout << "brewer                     : " << brewer           << endl;
+    cout << "BatchSize                  : " << batchSize        << endl;
+    cout << "BoilSize                   : " << boilSize         << endl;
+    cout << "BoilTime                   : " << boilTime         << endl;
+    cout << "Efficency                  : " << efficiency       << endl;
+    cout << "Alcohol by volume          : " << abv              << endl;
+    cout << "Estimated alcohol by volume: " << estAbv           << endl;
     cout << "##########################################"        << endl;
 }

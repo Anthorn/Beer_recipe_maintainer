@@ -17,17 +17,6 @@ class Water {
     void populate(map<string, string> rawWater);
     void insertValue(string attribute, string value);
 
-    string getName();
-    string getVersion();
-    string getNotes();
-    double getAmount();
-    double getCalcium();
-    double getBicarbonate();
-    double getSulfate();
-    double getChlorides();
-    double getSodium();
-    double getMagnesium();
-    double getPH();
   private:
     string name, version, notes;
     double amount, calcium, bicarbonate, sulfate, chloride, sodium, magnesium, ph;
