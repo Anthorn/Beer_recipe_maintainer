@@ -2,10 +2,7 @@
 #include <utility>
 #include <iostream>
 
-/*
- *
- *
- */
+using namespace std;
 
 void Fermentable::print()
 {

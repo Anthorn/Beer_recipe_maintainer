@@ -7,10 +7,10 @@ class WaterProfiles : public Parsable {
 
   public:
     void parse(std::shared_ptr<BeersmithXMLParser> parser);
-    void populate(list<map<string, string>> rawWaterList);
+    void populate(std::list<std::map<std::string, std::string>> rawWaterList);
     void print();
 
   private:
-    list<std::shared_ptr<Water>> waterProfiles;
+    std::list<std::shared_ptr<Water>> waterProfiles;
 
 };

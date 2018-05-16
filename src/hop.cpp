@@ -1,5 +1,7 @@
 #include <hop.h>
 
+using namespace std;
+
 
 void Hop::print()
 {

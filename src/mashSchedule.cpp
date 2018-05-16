@@ -1,5 +1,7 @@
 #include <mashSchedule.h>
 
+using namespace std;
+
 
 void MashSchedule::insertValue(string attribute, string value)
 {
@@ -34,9 +36,9 @@ void MashSchedule::print()
     }
 }
 
-list<std::shared_ptr<MashStep>> MashSchedule::getMashSteps()
+list<shared_ptr<MashStep>> MashSchedule::getMashSteps()
 {
-    return list<std::shared_ptr<MashStep>>();
+    return list<shared_ptr<MashStep>>();
 }
 
 void MashSchedule::parse(shared_ptr<BeersmithXMLParser> parser)
@@ -51,7 +53,7 @@ void MashSchedule::parse(shared_ptr<BeersmithXMLParser> parser)
 
 void MashSchedule::populate(list<map<string, string>> rawMashSchedule)
 {
-    std::shared_ptr<MashStep> mashStep;
+    shared_ptr<MashStep> mashStep;
     for (const auto& rawMashStep : rawMashSchedule)
     {
         mashStep.reset(new MashStep());

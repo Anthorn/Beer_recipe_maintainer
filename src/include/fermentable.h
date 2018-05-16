@@ -2,16 +2,16 @@
 #include <string>
 #include "parsable.h"
 
-using namespace std;
 
-class Fermentable{
-  public:
+class Fermentable : public Parsable
+{
+public:
     void print();
-    void populate(map<string, string> rawFermentable);
-    void insertValue(string attribute, string value);
+    void populate(std::map<std::string, std::string> rawFermentable);
+    void insertValue(std::string attribute, std::string value);
 
-  private:
-    string  name, version, type, origin, supplier, notes;
+private:
+    std::string  name, version, type, origin, supplier, notes;
     double  amount, yield, color;
     bool    addAfterBoil;
     bool    recommendedMash;

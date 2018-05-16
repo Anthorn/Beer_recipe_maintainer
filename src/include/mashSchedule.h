@@ -2,22 +2,18 @@
 
 #include "mashStep.h"
 
-using namespace std;
-
 class MashSchedule {
   public:
+    void                                    parse(std::shared_ptr<BeersmithXMLParser> parser);
+    void                                    print();
+    void                                    populate(std::list<std::map<std::string, std::string>> rawMashSteps);
 
-    void                            print();
-    list<std::shared_ptr<MashStep>> getMashSteps();
-    void                            parse(shared_ptr<BeersmithXMLParser> parser);
-    void                            insertValue(string attribute, string value);
-    void                            populate(list<map<string, string>> rawMashSteps);
-    void                            populateMetaData(map<string, string> rawMashMetaData);
+    void                                    populateMetaData(std::map<std::string, std::string> rawMashMetaData);
+    void                                    insertValue(std::string attribute, std::string value);
+    std::list<std::shared_ptr<MashStep>>    getMashSteps();
 
   private:
-    string                          name, version;
-    double                          spargeTemp, ph;
-    list<std::shared_ptr<MashStep>> mashSteps;
-
-
+    std::string                          name, version;
+    double                               spargeTemp, ph;
+    std::list<std::shared_ptr<MashStep>> mashSteps;
 };

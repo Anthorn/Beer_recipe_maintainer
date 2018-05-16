@@ -12,7 +12,7 @@ void Yeasts::print()
     }
 }
 
-void Yeasts::populate(list<map<string, string>> rawYeastList)
+void Yeasts::populate(list<map<std::string, std::string>> rawYeastList)
 {
     std::shared_ptr<Yeast> yeast;
 
@@ -31,6 +31,6 @@ list<std::shared_ptr<Yeast>> Yeasts::getYeastList()
 
 void Yeasts::parse(std::shared_ptr<BeersmithXMLParser> parser)
 {
-    list<map<string, string>> rawYeastList = parser->parseYeasts();
+    list<map<string, std::string>> rawYeastList = parser->parseYeasts();
     populate(rawYeastList);
 }

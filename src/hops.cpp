@@ -1,10 +1,10 @@
 #include <hops.h>
 
-
+using namespace std;
 
 void Hops::print()
 {
-    std::cout << "###### HOPS ######" << std::endl;
+    cout << "###### HOPS ######" << endl;
     for (const auto& hop : this->hops)
     {
         hop->print();
@@ -15,7 +15,7 @@ void Hops::print()
 
 void Hops::populate(list<map<string, string>> rawHops)
 {
-    std::shared_ptr<Hop> hop;
+    shared_ptr<Hop> hop;
     for (const auto& rawHop : rawHops)
     {
         hop.reset(new Hop());
@@ -24,12 +24,12 @@ void Hops::populate(list<map<string, string>> rawHops)
     }
 }
 
-list<std::shared_ptr<Hop>> Hops::getHops()
+list<shared_ptr<Hop>> Hops::getHops()
 {
-    return list<std::shared_ptr<Hop>>();
+    return list<shared_ptr<Hop>>();
 }
 
-void Hops::parse(std::shared_ptr<BeersmithXMLParser> parser)
+void Hops::parse(shared_ptr<BeersmithXMLParser> parser)
 {
     list<map<string, string>> rawHops = parser->parseHops();
     populate(rawHops);

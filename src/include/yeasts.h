@@ -7,13 +7,13 @@
 class Yeasts {
 
   public:
-    list<std::shared_ptr<Yeast>>    getYeastList();
-    void                            parse(std::shared_ptr<BeersmithXMLParser> parser);
-    void                            populate(list<map<string, string>> rawYeastList);
-    void                            print();
+    std::list<std::shared_ptr<Yeast>>   getYeastList();
+    void                                parse(std::shared_ptr<BeersmithXMLParser> parser);
+    void                                populate(std::list<std::map<std::string, std::string>> rawYeastList);
+    void                                print();
 
 
   private:
-    list<std::shared_ptr<Yeast>> yeastList;
+    std::list<std::shared_ptr<Yeast>> yeastList;
 
 };

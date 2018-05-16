@@ -13,7 +13,7 @@ void Fermentables::print()
 
 void Fermentables::populate(list<map<string, string>> rawFermentables)
 {
-    std::shared_ptr<Fermentable> fermentable;
+    shared_ptr<Fermentable> fermentable;
     for (const auto& rawFermentable : rawFermentables)
     {
         fermentable.reset(new Fermentable());
@@ -22,12 +22,12 @@ void Fermentables::populate(list<map<string, string>> rawFermentables)
     }
 }
 
-list<std::shared_ptr<Fermentable>> Fermentables::getFermentables()
+list<shared_ptr<Fermentable>> Fermentables::getFermentables()
 {
-    return list<std::shared_ptr<Fermentable>>();
+    return list<shared_ptr<Fermentable>>();
 }
 
-void Fermentables::parse(std::shared_ptr<BeersmithXMLParser> parser)
+void Fermentables::parse(shared_ptr<BeersmithXMLParser> parser)
 {
     list<map<string, string>> rawFermentables = parser->parseFermentables();
     populate(rawFermentables);

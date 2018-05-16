@@ -8,40 +8,35 @@
 #include "attributes.h"
 
 
-
-using namespace std;
-
-
-
 class BeersmithXMLParser {
 
   public:
     BeersmithXMLParser(const char* fileName);
 
-    map<string, string> parseBeerData();
-    map<string, string> parseStyle();
-    map<string, string> parseEquipment();
-    map<string, string> parseMashMetaData();
+    std::map<std::string, std::string> parseBeerData();
+    std::map<std::string, std::string> parseStyle();
+    std::map<std::string, std::string> parseEquipment();
+    std::map<std::string, std::string> parseMashMetaData();
 
-    list<map<string, string>> parseHops();
-    list<map<string, string>> parseFermentables();
-    list<map<string, string>> parseYeasts();
-    list<map<string, string>> parseWaterProfiles();
-    list<map<string, string>> parseMashSchedule();
+    std::list<std::map<std::string, std::string>> parseHops();
+    std::list<std::map<std::string, std::string>> parseFermentables();
+    std::list<std::map<std::string, std::string>> parseYeasts();
+    std::list<std::map<std::string, std::string>> parseWaterProfiles();
+    std::list<std::map<std::string, std::string>> parseMashSchedule();
 
-    map<string, string> parseHopVariety(TiXmlElement* hopVariety);
-    map<string, string> parseFermentable(TiXmlElement* fermentable);
-    map<string, string> parseYeast(TiXmlElement* yeast);
-    map<string, string> parseWater(TiXmlElement* water);
-    map<string, string> parseMashStep(TiXmlElement* mashStep);
+    std::map<std::string, std::string> parseHopVariety(TiXmlElement* hopVariety);
+    std::map<std::string, std::string> parseFermentable(TiXmlElement* fermentable);
+    std::map<std::string, std::string> parseYeast(TiXmlElement* yeast);
+    std::map<std::string, std::string> parseWater(TiXmlElement* water);
+    std::map<std::string, std::string> parseMashStep(TiXmlElement* mashStep);
 
   private:
-    TiXmlDocument*            doc;
-    TiXmlHandle*              handle;
-    TiXmlElement*             fetchStartOfParse(string key);
-    map<string, string>       populateMapFromAttributes(TiXmlElement* element, string* attributes, size_t size);
-    list<map<string, string>> parseAndBuildResult(string startKey, string elementKey);
-    map<string, string>       parseIngredient(TiXmlElement* element, string type);
+    TiXmlDocument*                                  doc;
+    TiXmlHandle*                                    handle;
+    TiXmlElement*                                   fetchStartOfParse(std::string key);
+    std::map<std::string, std::string>              populateMapFromAttributes(TiXmlElement* element, std::string* attributes, size_t size);
+    std::list<std::map<std::string, std::string>>   parseAndBuildResult(std::string startKey, std::string elementKey);
+    std::map<std::string, std::string>              parseIngredient(TiXmlElement* element, std::string type);
 
 };
 

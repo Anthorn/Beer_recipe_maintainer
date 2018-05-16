@@ -2,6 +2,8 @@
 #include <map>
 #include <array>
 
+using namespace std;
+
 
 void BeerData::insertValue(string attribute, string value)
 {
@@ -48,7 +50,7 @@ void BeerData::insertValue(string attribute, string value)
 }
 
 
-void BeerData::parse(std::shared_ptr<BeersmithXMLParser> parser)
+void BeerData::parse(shared_ptr<BeersmithXMLParser> parser)
 {
     map<string, string> current = parser->parseBeerData();
     populate(current);

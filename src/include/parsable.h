@@ -12,11 +12,11 @@ class Parsable
 {
 public:
     virtual void parse(std::shared_ptr<BeersmithXMLParser> parser) {};
-    virtual void populate(map<string, string> parsedMap) {};
-    virtual void populate(list<map<string, string>> parsedList) {};
     virtual void print() {};
+    virtual void populate(std::map<std::string, std::string> parsedMap) {};
+    virtual void populate(std::list<std::map<std::string, std::string>> parsedList) {};
 
-    static bool convertStringToBool(string value)
+    static bool convertStringToBool(std::string value)
     {
         if (value.compare("TRUE") == 0)
         {
@@ -27,7 +27,7 @@ public:
             return false;
         }
     }
-    static string printBool(bool value)
+    static std::string printBool(bool value)
     {
         if (value)
         {

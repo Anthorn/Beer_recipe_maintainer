@@ -2,19 +2,17 @@
 #include <list>
 #include "fermentable.h"
 
-using namespace std;
 
-class Fermentables : public Parsable{
+class Fermentables : public Parsable
+{
 
-  public:
-    void                                parse(std::shared_ptr<BeersmithXMLParser> parser);
-    void                                populate(list<map<string, string>> rawFermentables);
-    void                                print();
-    list<std::shared_ptr<Fermentable>>  getFermentables();
-
-
-  private:
-    list<std::shared_ptr<Fermentable>> fermentables;
+public:
+    void                                     parse(std::shared_ptr<BeersmithXMLParser> parser);
+    void                                     print();
+    void                                     populate(std::list<std::map<std::string, std::string>> rawFermentables);
+    std::list<std::shared_ptr<Fermentable>>  getFermentables();
+private:
+    std::list<std::shared_ptr<Fermentable>> fermentables;
 
 };
 

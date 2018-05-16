@@ -1,24 +1,19 @@
-#ifndef DEF_EQUIPMENT
-#define DEF_EQUIPMENT
+#pragma once
 #include <string>
 #include "parsable.h"
 
-using namespace std;
-
-
 class Equipment : public Parsable {
   public:
-    void populate(map<string, string> parsedMap);
     void parse(std::shared_ptr<BeersmithXMLParser> parser);
     void print();
-    void insertValue(string attribute, string value);
+    void populate(std::map<std::string, std::string> parsedMap);
+    void insertValue(std::string attribute, std::string value);
 
 
   private:
-    string name, version, notes;
+    std::string name, version, notes;
     double batchSize, boilSize, boilTime, efficency, tunVolume, trubChillerLoss, evaporationRate,
            hopUtil, lauterDeadspace;
 };
 
-#endif
 

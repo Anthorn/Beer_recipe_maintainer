@@ -3,21 +3,15 @@
 #include <string>
 #include "parsable.h"
 
-
-using namespace std;
-
-
-
-
 class Yeast {
   public:
     void print();
-    void populate(map<string, string> rawYeast);
+    void populate(std::map<std::string, std::string> rawYeast);
 
   private:
-    string name, version, type, form, productID, laboratory, notes, cultureDate, flocculation;
+    std::string name, version, type, form, productID, laboratory, notes, cultureDate, flocculation;
     double attenuation, minTemp, maxTemp, amount;
     bool amountIsWeight;
-    void insertValue(string attribute, string value);
+    void insertValue(std::string attribute, std::string value);
 };
 

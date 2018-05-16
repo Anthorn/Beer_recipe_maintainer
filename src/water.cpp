@@ -2,8 +2,6 @@
 
 using namespace std;
 
-
-
 void Water::print()
 {
     cout << "     ########## WATER ##########"          << endl;

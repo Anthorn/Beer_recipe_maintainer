@@ -3,14 +3,15 @@
 #include <list>
 
 
-class Hops : public Parsable {
+class Hops : public Parsable
+{
 
-  public:
-    list<std::shared_ptr<Hop>>  getHops();
-    void                        print();
+public:
     void                        parse(std::shared_ptr<BeersmithXMLParser> parser) override;
-    void                        populate(list<map<string, string>> rawHops) override;
+    void                        print();
+    void                        populate(std::list<std::map<std::string, std::string>> rawHops) override;
+    std::list<std::shared_ptr<Hop>>  getHops();
 
-  private:
-    list<std::shared_ptr<Hop>> hops;
+private:
+    std::list<std::shared_ptr<Hop>> hops;
 };

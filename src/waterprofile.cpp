@@ -1,7 +1,8 @@
 #include <waterProfile.h>
 
+using namespace std;
 
-void WaterProfiles::parse(std::shared_ptr<BeersmithXMLParser> parser)
+void WaterProfiles::parse(shared_ptr<BeersmithXMLParser> parser)
 {
     list<map<string, string>> rawWaterProfiles = parser->parseWaterProfiles();
     populate(rawWaterProfiles);
@@ -9,7 +10,7 @@ void WaterProfiles::parse(std::shared_ptr<BeersmithXMLParser> parser)
 
 void WaterProfiles::populate(list<map<string, string>> rawWaterList)
 {
-    std::shared_ptr<Water> water;
+    shared_ptr<Water> water;
 
     for (const auto& rawWater : rawWaterList)
     {

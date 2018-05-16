@@ -2,6 +2,8 @@
 #include <string>
 #include <iostream>
 
+using namespace std;
+
 void Equipment::print()
 {
     cout << "##### EQUIPMENT #####"                   << endl;
@@ -78,7 +80,7 @@ void Equipment::populate(map<string, string> parsedMap)
     }
 }
 
-void Equipment::parse(std::shared_ptr<BeersmithXMLParser> parser)
+void Equipment::parse(shared_ptr<BeersmithXMLParser> parser)
 {
     map<string, string> current = parser->parseEquipment();
     populate(current);

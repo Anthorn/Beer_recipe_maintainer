@@ -1,5 +1,7 @@
 #include "beerParser.h"
 
+using namespace std;
+
 
 BeersmithXMLParser::BeersmithXMLParser(const char* fileName)
 {
