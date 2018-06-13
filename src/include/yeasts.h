@@ -4,7 +4,7 @@
 #include "yeast.h"
 
 
-class Yeasts {
+class Yeasts : public Parsable{
 
   public:
     std::list<std::shared_ptr<Yeast>>   getYeastList();

@@ -2,7 +2,7 @@
 
 #include "mashStep.h"
 
-class MashSchedule {
+class MashSchedule : public Parsable {
   public:
     void                                    parse(std::shared_ptr<BeersmithXMLParser> parser);
     void                                    print();

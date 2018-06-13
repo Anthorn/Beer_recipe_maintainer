@@ -101,6 +101,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\beerCommander.cpp" />
     <ClCompile Include="src\beerData.cpp" />
     <ClCompile Include="src\equipment.cpp" />
     <ClCompile Include="src\fermentable.cpp" />
@@ -125,6 +126,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h" />
+    <ClInclude Include="src\include\beerCommander.h" />
     <ClInclude Include="src\include\beerData.h" />
     <ClInclude Include="src\include\equipment.h" />
     <ClInclude Include="src\include\fermentable.h" />

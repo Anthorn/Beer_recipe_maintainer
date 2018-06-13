@@ -6,8 +6,6 @@
 #include "beerParser.h"
 
 
-
-
 class Parsable
 {
 public:

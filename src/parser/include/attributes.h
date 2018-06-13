@@ -2,6 +2,7 @@
 #define DEF_ATTRIBUTES_H
 
 #include <string>
+#include <vector>
 
 #define BEER_ATTRIBUTE_SIZE         10
 #define HOP_ATTRIBUTE_SIZE          10
@@ -120,5 +121,20 @@ static std::string mashStepAttr[MASH_STEP_ATTR_SIZE] =  {
   "END_TEMP",
   "WATER_GRAIN_RATIO",
   "INFUSE_TEMP"};
+
+static std::vector<std::string> supportedResources = {
+    "BEERDATA",
+    "EQUIPMENT",
+    "FERMENTABLES",
+    "HOPS",
+    "MASHSCHEDULE",
+    "RECIPE",
+    "WATERPROFILES",
+    "YEASTS" };
+
+static std::vector<std::string> supportedTask = {
+    "PRINT",
+    "HELP",
+    ""};
 
 #endif
