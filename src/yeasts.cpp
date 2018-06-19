@@ -2,7 +2,7 @@
 
 using namespace std;
 
-void Yeasts::print()
+void Yeasts::print() const
 {
 
     cout << "###### YEASTS ######" << endl;

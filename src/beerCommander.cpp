@@ -14,6 +14,9 @@ void BeerCommander::execute()
     }
     else if (cmd == "HELP")
     {
-        std::cout << " The following options are available: \n task: [ PRINT|HELP ] , resource: [ BEER_DATA | EQUIPMENT | FERMENTABLES | HOPS | MASHSCHEDULE | RECIPE | WATER_PROFILE | YEASTS ] \n";
+        std::cout << "The following options are available: \n" <<
+            "task: [ PRINT, HELP ]\n" <<
+            "resource: [ BEERDATA, EQUIPMENT, FERMENTABLES, HOPS, MASHSCHEDULE, RECIPE, WATERPROFILES, YEASTS ] \n" <<
+            "Example: PRINT|EQUIPMENT\n";
     }
 }

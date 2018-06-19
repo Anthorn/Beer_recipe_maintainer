@@ -20,7 +20,7 @@ void WaterProfiles::populate(list<map<string, string>> rawWaterList)
     }
 }
 
-void WaterProfiles::print()
+void WaterProfiles::print() const
 {
     cout << "####### WATERPROFILE ######" << endl;
 

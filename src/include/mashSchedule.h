@@ -5,7 +5,7 @@
 class MashSchedule : public Parsable {
   public:
     void                                    parse(std::shared_ptr<BeersmithXMLParser> parser);
-    void                                    print();
+    void                                    print() const override;
     void                                    populate(std::list<std::map<std::string, std::string>> rawMashSteps);
 
     void                                    populateMetaData(std::map<std::string, std::string> rawMashMetaData);

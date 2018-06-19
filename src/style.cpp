@@ -3,7 +3,7 @@
 
 using namespace std;
 
-void Style::print()
+void Style::print() const
 {
     cout << "     ########## STYLE ##########"      << endl;
     cout << "     Name     : " << this->name        << endl;

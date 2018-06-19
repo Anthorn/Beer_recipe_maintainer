@@ -4,7 +4,7 @@
 
 using namespace std;
 
-void Equipment::print()
+void Equipment::print() const
 {
     cout << "##### EQUIPMENT #####"                   << endl;
     cout << "Name              : " << name            << endl;

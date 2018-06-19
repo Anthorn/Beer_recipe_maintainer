@@ -3,7 +3,7 @@
 using namespace std;
 
 
-void Hop::print()
+void Hop::print() const
 {
     cout << "     ########## HOP ##########"<< endl;
     cout << "     Name     : " << name      << endl;

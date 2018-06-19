@@ -2,7 +2,7 @@
 
 using namespace std;
 
-void Hops::print()
+void Hops::print() const
 {
     cout << "###### HOPS ######" << endl;
     for (const auto& hop : this->hops)

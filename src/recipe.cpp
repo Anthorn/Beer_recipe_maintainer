@@ -66,7 +66,7 @@ void Recipe::loadMashSchedule()
 
 }
 
-void Recipe::printRecipe()
+void Recipe::printRecipe() const
 {
     if (beerData)       beerData->print();
     if (hops)           hops->print();
@@ -83,23 +83,26 @@ void Recipe::issueCommand(std::string cmd)
     std::stringstream ss(cmd);
     std::string task, resource;
 
-    std::getline(ss, task, ' ');
-    std::getline(ss, resource, ' ');
+    std::getline(ss, task, '|');
+    std::getline(ss, resource, '|');
 
-    bool validTask( std::find(supportedTask.begin(), supportedTask.end(), task) != supportedTask.end());
+    bool validTask(std::find(supportedTask.begin(), supportedTask.end(), task) != supportedTask.end());
     if (validTask == false)
     {
         std::cout << "Unsupported Task: " << task << " exiting...\n";
         return;
     }
 
-    bool validResource( std::find(supportedResources.begin(), supportedResources.end(), resource) != supportedResources.end());
-    if (validResource == false)
+    if (task != "HELP")
     {
-        std::cout << "Unsupported Resource: " << resource << " exiting...\n";
-        return;
-    }
+        bool validResource(std::find(supportedResources.begin(), supportedResources.end(), resource) != supportedResources.end());
 
+        if (validResource == false)
+        {
+            std::cout << "Unsupported Resource: " << resource << " exiting...\n";
+            return;
+        }
+    }
     std::shared_ptr<BeerCommander> commander;
 
     commander.reset(new BeerCommander(pickResource(resource), task));
@@ -147,6 +150,10 @@ std::shared_ptr<Parsable> Recipe::pickResource(std::string resource)
         return Recipe::getYeasts();
 
     }
+    else if (resource == "")
+    {
+        //nop
+    }
     else
     {
         std::cout << "Did not recognize resource " << resource << "\n";
@@ -155,7 +162,7 @@ std::shared_ptr<Parsable> Recipe::pickResource(std::string resource)
 
 std::shared_ptr<BeersmithXMLParser> Recipe::getParser()
 {
-    return std::shared_ptr<BeersmithXMLParser>();
+    return parser;
 }
 
 std::shared_ptr<BeerData> Recipe::getBeerData()

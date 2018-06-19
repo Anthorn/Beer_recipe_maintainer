@@ -2,7 +2,7 @@
 
 using namespace std;
 
-void Fermentables::print()
+void Fermentables::print() const
 {
     cout << "###### FERMENTABLES ######" << endl;
     for (const auto& fermentable : fermentables)

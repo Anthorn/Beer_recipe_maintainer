@@ -3,7 +3,7 @@
 using namespace std;
 
 
-void MashStep::print()
+void MashStep::print() const
 {
     cout << "     ########## Mash Step ##########"      << endl;
     cout << "     Name           : " << name            << endl;

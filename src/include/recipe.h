@@ -40,7 +40,7 @@ class Recipe{
     void                                loadStyle();
     void                                loadEquipment();
     void                                loadMashSchedule();
-    void                                printRecipe();
+    void                                printRecipe() const;
     void                                issueCommand(std::string cmd);
 
     std::shared_ptr<Parsable>           pickResource(std::string resource);

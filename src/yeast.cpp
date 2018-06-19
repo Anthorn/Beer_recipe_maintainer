@@ -3,7 +3,7 @@
 
 using namespace std;
 
-void Yeast::print()
+void Yeast::print() const
 {
     cout << "     ########## YEAST ##########"               << endl;
     cout << "     Name             : " << this->name         << endl;

@@ -67,7 +67,7 @@ void BeerData::populate(map<string, string> parsedMap)
     }
 }
 
-void BeerData::print()
+void BeerData::print() const
 {
     cout << "############   BeerData     #############"         << endl;
     cout << "Name                       : " << name             << endl;

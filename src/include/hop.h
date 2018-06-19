@@ -6,7 +6,7 @@
 class Hop : public Parsable
 {
 public:
-    void print() override;
+    void print() const override;
     void populate(std::map<std::string, std::string> rawHop) override;
     void insertValue(std::string attribute, std::string value);
 

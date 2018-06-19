@@ -4,10 +4,10 @@
 
 class Equipment : public Parsable {
   public:
-    void parse(std::shared_ptr<BeersmithXMLParser> parser);
-    void print();
-    void populate(std::map<std::string, std::string> parsedMap);
-    void insertValue(std::string attribute, std::string value);
+    void        parse(std::shared_ptr<BeersmithXMLParser> parser);
+    void        print() const override;
+    void        populate(std::map<std::string, std::string> parsedMap);
+    void        insertValue(std::string attribute, std::string value);
 
 
   private:

@@ -9,10 +9,10 @@
 class Parsable
 {
 public:
-    virtual void parse(std::shared_ptr<BeersmithXMLParser> parser) {};
-    virtual void print() {};
-    virtual void populate(std::map<std::string, std::string> parsedMap) {};
-    virtual void populate(std::list<std::map<std::string, std::string>> parsedList) {};
+    virtual void        parse(std::shared_ptr<BeersmithXMLParser> parser) {};
+    virtual void        print() const {};
+    virtual void        populate(std::map<std::string, std::string> parsedMap) {};
+    virtual void        populate(std::list<std::map<std::string, std::string>> parsedList) {};
 
     static bool convertStringToBool(std::string value)
     {

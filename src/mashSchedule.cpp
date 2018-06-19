@@ -23,7 +23,7 @@ void MashSchedule::insertValue(string attribute, string value)
     }
 }
 
-void MashSchedule::print()
+void MashSchedule::print() const
 {
     cout << "###### MASH SCHEDULE ######"    << endl;
     cout << "  Name         : "  << name       << endl;

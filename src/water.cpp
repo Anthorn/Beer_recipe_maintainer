@@ -2,7 +2,7 @@
 
 using namespace std;
 
-void Water::print()
+void Water::print() const
 {
     cout << "     ########## WATER ##########"          << endl;
     cout << "     Name         : " << this->name        << endl;

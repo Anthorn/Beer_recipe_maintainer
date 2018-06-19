@@ -4,7 +4,7 @@
 
 using namespace std;
 
-void Fermentable::print()
+void Fermentable::print() const
 {
     cout << "     ########## FERMENTABLE ##########"    << endl;
     cout << "     Name                : " << name       << endl;

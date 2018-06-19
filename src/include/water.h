@@ -3,11 +3,11 @@
 #include <string>
 #include "parsable.h"
 
-class Water {
+class Water : Parsable {
   public:
-    void print();
-    void populate(std::map<std::string, std::string> rawWater);
-    void insertValue(std::string attribute, std::string value);
+    void        print() const override;
+    void        populate(std::map<std::string, std::string> rawWater);
+    void        insertValue(std::string attribute, std::string value);
 
   private:
     std::string name, version, notes;
