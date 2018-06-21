@@ -23,65 +23,63 @@ void Yeast::print() const
     cout << "     #########################"                 << endl;
 }
 
-
-
 void Yeast::insertValue(string attribute, string value)
 {
     if (yeastAttributes[0].compare(attribute) == 0)
     {
-        this->name = value;
+        name = value;
     }
     else if (yeastAttributes[1].compare(attribute) == 0)
     {
-        this->version = value;
+        version = value;
     }
     else if (yeastAttributes[2].compare(attribute) == 0)
     {
-        this->type = value;
+        type = value;
     }
     else if (yeastAttributes[3].compare(attribute) == 0)
     {
-        this->form = value;
+        form = value;
     }
     else if (yeastAttributes[4].compare(attribute) == 0)
     {
-        this->amount = stod(value);
+        amount = stod(value);
     }
     else if (yeastAttributes[5].compare(attribute) == 0)
     {
-        this->amountIsWeight = Parsable::convertStringToBool(value);
+        amountIsWeight = Parsable::convertStringToBool(value);
     }
     else if (yeastAttributes[6].compare(attribute) == 0)
     {
-        this->laboratory = value;
+        laboratory = value;
     }
     else if (yeastAttributes[7].compare(attribute) == 0)
     {
-        this->productID = value;
+        productID = value;
     }
     else if (yeastAttributes[8].compare(attribute) == 0)
     {
-        this->minTemp = stod(value);
+        minTemp = stod(value);
     }
     else if (yeastAttributes[9].compare(attribute) == 0)
     {
-        this->maxTemp = stod(value);
+        maxTemp = stod(value);
     }
     else if (yeastAttributes[10].compare(attribute) == 0)
     {
-        this->flocculation = value;
+        flocculation = value;
     }
     else if (yeastAttributes[11].compare(attribute) == 0)
     {
-        this->attenuation = stod(value);
+        attenuation = stod(value);
     }
     else if (yeastAttributes[12].compare(attribute) == 0)
     {
-        this->notes = value;
+        notes = value;
     }
     else if (yeastAttributes[13].compare(attribute) == 0)
     {
-        this->cultureDate = value;
+        cultureDate = value;
     }
 }
 
@@ -93,4 +91,26 @@ void Yeast::populate(map<string, string> rawYeast)
     {
         insertValue(attribute, rawYeast[attribute]);
     }
+}
+
+std::ostream & operator<<(std::ostream & out, const Yeast yeast)
+{
+    out << "     ########## YEAST ##########"               << "\n";
+    out << "     Name             : " << yeast.name         << "\n";
+    out << "     Version          : " << yeast.version      << "\n";
+    out << "     Type             : " << yeast.type         << "\n";
+    out << "     Form             : " << yeast.form         << "\n";
+    out << "     Amount           : " << yeast.amount       << "\n";
+    out << "     IsAmountInWeight : " << Parsable::printBool(yeast.amountIsWeight) << "\n";
+    out << "     Laboratory       : " << yeast.laboratory   << "\n";
+    out << "     ProductID        : " << yeast.productID    << "\n";
+    out << "     Minium Temp      : " << yeast.minTemp      << "\n";
+    out << "     Maximum Temp     : " << yeast.maxTemp      << "\n";
+    out << "     Flocculation     : " << yeast.flocculation << "\n";
+    out << "     Attenuation      : " << yeast.attenuation  << "\n";
+    out << "     Notes            : " << yeast.notes        << "\n";
+    out << "     Culture date     : " << yeast.cultureDate  << "\n";
+    out << "     #########################"                 << "\n";
+
+    return out;
 }

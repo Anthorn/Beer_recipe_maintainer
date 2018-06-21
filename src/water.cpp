@@ -2,22 +2,6 @@
 
 using namespace std;
 
-void Water::print() const
-{
-    cout << "     ########## WATER ##########"          << endl;
-    cout << "     Name         : " << this->name        << endl;
-    cout << "     Version      : " << this->version     << endl;
-    cout << "     Amount       : " << this->amount      << endl;
-    cout << "     Calcium      : " << this->calcium     << endl;
-    cout << "     Bicarbonate  : " << this->bicarbonate << endl;
-    cout << "     Sulfate      : " << this->sulfate     << endl;
-    cout << "     Chloride     : " << this->chloride    << endl;
-    cout << "     Sodium       : " << this->sodium      << endl;
-    cout << "     Magnesium    : " << this->magnesium   << endl;
-    cout << "     PH           : " << this->ph          << endl;
-    cout << "     Notes        : " << this->notes       << endl;
-
-}
 
 void Water::insertValue(string attribute, string value)
 {
@@ -76,3 +60,20 @@ void Water::populate(map<string, string> rawWater)
     }
 }
 
+std::ostream & operator<<(std::ostream & out, const Water water)
+{
+    out << "     ########## WATER ##########"           <<"\n";
+    out << "     Name         : " << water.name         <<"\n";
+    out << "     Version      : " << water.version      << "\n";
+    out << "     Amount       : " << water.amount       << "\n";
+    out << "     Calcium      : " << water.calcium      << "\n";
+    out << "     Bicarbonate  : " << water.bicarbonate  << "\n";
+    out << "     Sulfate      : " << water.sulfate      << "\n";
+    out << "     Chloride     : " << water.chloride     << "\n";
+    out << "     Sodium       : " << water.sodium       << "\n";
+    out << "     Magnesium    : " << water.magnesium    << "\n";
+    out << "     PH           : " << water.ph           << "\n";
+    out << "     Notes        : " << water.notes        << "\n";
+
+    return out;
+}

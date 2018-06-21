@@ -37,7 +37,7 @@ int main()
     while(1)
     {
 
-        std::cout << "What would you like to do? [type h for help]\n";
+        std::cout << "What would you like to do? [type 'help' for instructions]\n";
 
         std::cin >> cmd;
         toUpper(cmd);

@@ -6,9 +6,9 @@
 class Fermentable : public Parsable
 {
 public:
-    void        print() const override;
-    void        populate(std::map<std::string, std::string> rawFermentable);
-    void        insertValue(std::string attribute, std::string value);
+    void                    populate(std::map<std::string, std::string> rawFermentable);
+    void                    insertValue(std::string attribute, std::string value);
+    friend std::ostream&    operator<<(std::ostream &out, const Fermentable fermentable);
 
 private:
     std::string  name, version, type, origin, supplier, notes;

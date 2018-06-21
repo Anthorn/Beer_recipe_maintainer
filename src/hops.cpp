@@ -7,7 +7,7 @@ void Hops::print() const
     cout << "###### HOPS ######" << endl;
     for (const auto& hop : this->hops)
     {
-        hop->print();
+        cout << *hop;
     }
 }
 

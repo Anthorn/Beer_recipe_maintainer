@@ -5,18 +5,6 @@ using namespace std;
 
 void Hop::print() const
 {
-    cout << "     ########## HOP ##########"<< endl;
-    cout << "     Name     : " << name      << endl;
-    cout << "     Version  : " << version   << endl;
-    cout << "     Origin   : " << origin    << endl;
-    cout << "     Usage    : " << use       << endl;
-    cout << "     Notes    : " << notes     << endl;
-    cout << "     Type     : " << type      << endl;
-    cout << "     Form     : " << form      << endl;
-    cout << "     AlphaAcid: " << alphaAcid << endl;
-    cout << "     Amount   : " << amount    << endl;
-    cout << "     Time     : " << time      << endl;
-    cout << "     ########################" << endl;
 }
 
 
@@ -73,3 +61,20 @@ void Hop::populate(map<string, string> rawHop)
     }
 }
 
+std::ostream & operator<<(std::ostream & out, const Hop hop)
+{
+    out << "     ########## HOP ##########"    << "\n";
+    out << "     Name     : " << hop.name      << "\n";
+    out << "     Version  : " << hop.version   << "\n";
+    out << "     Origin   : " << hop.origin    << "\n";
+    out << "     Usage    : " << hop.use       << "\n";
+    out << "     Notes    : " << hop.notes     << "\n";
+    out << "     Type     : " << hop.type      << "\n";
+    out << "     Form     : " << hop.form      << "\n";
+    out << "     AlphaAcid: " << hop.alphaAcid << "\n";
+    out << "     Amount   : " << hop.amount    << "\n";
+    out << "     Time     : " << hop.time      << "\n";
+    out << "     ########################"     << "\n";
+
+    return out;
+}

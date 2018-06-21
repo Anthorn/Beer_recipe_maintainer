@@ -3,20 +3,6 @@
 using namespace std;
 
 
-void MashStep::print() const
-{
-    cout << "     ########## Mash Step ##########"      << endl;
-    cout << "     Name           : " << name            << endl;
-    cout << "     Version        : " << version         << endl;
-    cout << "     Type           : " << type            << endl;
-    cout << "     Infuse amount  : " << infuseAmount    << endl;
-    cout << "     Step Time      : " << stepTime        << endl;
-    cout << "     Step Temp      : " << stepTemp        << endl;
-    cout << "     End Temp       : " << endTemp         << endl;
-    cout << "     Water/Grain    : " << waterGrainRatio << endl;
-    cout << "     Infuse Temp    : " << infuseTemp      << endl;
-}
-
 void MashStep::insertValue(string attribute, string value)
 {
     if (mashStepAttr[0].compare(attribute) == 0)
@@ -63,4 +49,20 @@ void MashStep::populate(map<string, string> rawMashStep)
     {
         insertValue(attribute, rawMashStep[attribute]);
     }
+}
+
+std::ostream & operator<<(std::ostream & out, const MashStep step)
+{
+    out << "     ########## Mash Step ##########"           << "\n";
+    out << "     Name           : " << step.name            << "\n";
+    out << "     Version        : " << step.version         << "\n";
+    out << "     Type           : " << step.type            << "\n";
+    out << "     Infuse amount  : " << step.infuseAmount    << "\n";
+    out << "     Step Time      : " << step.stepTime        << "\n";
+    out << "     Step Temp      : " << step.stepTemp        << "\n";
+    out << "     End Temp       : " << step.endTemp         << "\n";
+    out << "     Water/Grain    : " << step.waterGrainRatio << "\n";
+    out << "     Infuse Temp    : " << step.infuseTemp      << "\n";
+
+    return out;
 }

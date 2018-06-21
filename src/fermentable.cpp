@@ -4,23 +4,6 @@
 
 using namespace std;
 
-void Fermentable::print() const
-{
-    cout << "     ########## FERMENTABLE ##########"    << endl;
-    cout << "     Name                : " << name       << endl;
-    cout << "     Version             : " << version    << endl;
-    cout << "     Type                : " << type       << endl;
-    cout << "     Origin              : " << origin     << endl;
-    cout << "     Notes               : " << notes      << endl;
-    cout << "     Amount              : " << amount     << endl;
-    cout << "     Yield               : " << yield      << endl;
-    cout << "     Color               : " << color      << endl;
-    cout << "     After boil          : " << Parsable::printBool(addAfterBoil) << endl;
-    cout << "     Reccomended in mash : " << Parsable::printBool(recommendedMash) << endl;
-    cout << "     ######################"               << endl;
-}
-
-
 void Fermentable::insertValue(string attribute, string value)
 {
     if (fermentableAttributes[0].compare(attribute) == 0)
@@ -74,3 +57,20 @@ void Fermentable::populate(map<string, string> rawFermentable)
     }
 }
 
+std::ostream & operator<<(std::ostream & out, const Fermentable fermentable)
+{
+    out << "     ########## FERMENTABLE ##########"                                         << "\n";
+    out << "     Name                : " << fermentable.name                                << "\n";
+    out << "     Version             : " << fermentable.version                             << "\n";
+    out << "     Type                : " << fermentable.type                                << "\n";
+    out << "     Origin              : " << fermentable.origin                              << "\n";
+    out << "     Notes               : " << fermentable.notes                               << "\n";
+    out << "     Amount              : " << fermentable.amount                              << "\n";
+    out << "     Yield               : " << fermentable.yield                               << "\n";
+    out << "     Color               : " << fermentable.color                               << "\n";
+    out << "     After boil          : " << Parsable::printBool(fermentable.addAfterBoil)   << "\n";
+    out << "     Reccomended in mash : " << Parsable::printBool(fermentable.recommendedMash)<< "\n";
+    out << "     ######################"                                                    << "\n";
+
+    return out;
+}

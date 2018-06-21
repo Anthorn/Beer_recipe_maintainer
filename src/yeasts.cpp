@@ -4,12 +4,12 @@ using namespace std;
 
 void Yeasts::print() const
 {
-
-    cout << "###### YEASTS ######" << endl;
-    for (const auto& yeast : this->yeastList)
+    cout << "###### YEASTS ######\n";
+    for (const auto& yeast : yeastList)
     {
-        yeast->print();
+        cout << *yeast;
     }
+
 }
 
 void Yeasts::populate(list<map<std::string, std::string>> rawYeastList)
@@ -33,4 +33,15 @@ void Yeasts::parse(std::shared_ptr<BeersmithXMLParser> parser)
 {
     list<map<string, std::string>> rawYeastList = parser->parseYeasts();
     populate(rawYeastList);
+}
+
+std::ostream & operator<<(std::ostream & out, Yeasts & yeasts)
+{
+    out << "###### YEASTS ######\n";
+    for (const auto& yeast : yeasts.yeastList)
+    {
+        out << *yeast;
+    }
+
+    return out;
 }

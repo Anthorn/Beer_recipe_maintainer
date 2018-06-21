@@ -26,7 +26,7 @@ void WaterProfiles::print() const
 
     for (const auto& water : this->waterProfiles)
     {
-        water->print();
+        cout << *water;
     }
 
 }

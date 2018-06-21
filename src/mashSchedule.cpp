@@ -32,7 +32,7 @@ void MashSchedule::print() const
     cout << "  PH           : "  << ph         << endl;
     for (const auto& mashStep : mashSteps)
     {
-        mashStep->print();
+       cout << *mashStep;
     }
 }
 

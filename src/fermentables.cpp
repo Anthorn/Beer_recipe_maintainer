@@ -7,7 +7,7 @@ void Fermentables::print() const
     cout << "###### FERMENTABLES ######" << endl;
     for (const auto& fermentable : fermentables)
     {
-        fermentable->print();
+        cout << *fermentable;
     }
 }
 

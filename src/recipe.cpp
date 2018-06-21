@@ -71,7 +71,7 @@ void Recipe::printRecipe() const
     if (beerData)       beerData->print();
     if (hops)           hops->print();
     if (fermentables)   fermentables->print();
-    if (yeasts)         yeasts->print();
+    if (yeasts)         std::cout << yeasts;
     if (waterProfiles)  waterProfiles->print();
     if (style)          style->print();
     if (equipment)      equipment->print();

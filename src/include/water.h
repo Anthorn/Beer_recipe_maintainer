@@ -5,9 +5,9 @@
 
 class Water : Parsable {
   public:
-    void        print() const override;
-    void        populate(std::map<std::string, std::string> rawWater);
-    void        insertValue(std::string attribute, std::string value);
+    void                    populate(std::map<std::string, std::string> rawWater);
+    void                    insertValue(std::string attribute, std::string value);
+    friend std::ostream&    operator<<(std::ostream &out, const Water water);
 
   private:
     std::string name, version, notes;
